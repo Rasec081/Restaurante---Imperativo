@@ -6,13 +6,10 @@
 #include <string>
 #include <iomanip>
 using namespace std;
-
+ProductManager::ProductManager() {}
 vector<Producto> ProductManager::crearProducto(string nombre, float precio) {
 
     Producto nuevoProducto;
-
-    cantidad++;
-    nuevoProducto.id = cantidad;
     nuevoProducto.nombre = nombre;
     nuevoProducto.precio = precio;
 
@@ -21,29 +18,29 @@ vector<Producto> ProductManager::crearProducto(string nombre, float precio) {
     return listaProductos;
 }
 
-void ProductManager::actualizarProducto(int id, string nombre, float precio) {
+void ProductManager::actualizarProducto(string nombre, string nuevoNombre, float precio) {
 
     for (int i = 0; i < listaProductos.size(); i++) {
 
-        if (listaProductos[i].id == id) {
-
-            listaProductos[i].nombre = nombre;
+        if (listaProductos[i].nombre == nombre) {
+            listaProductos[i].nombre = nuevoNombre;
             listaProductos[i].precio = precio;
             break;
         }
     }
 }
 
+
 vector<Producto> ProductManager::getProductos() {
 
     return listaProductos;
 }
 
-void ProductManager::eliminarProducto(int id) {
+void ProductManager::eliminarProducto(string nombre) {
 
     for (int i = 0; i < listaProductos.size(); i++) {
 
-        if (listaProductos[i].id == id) {
+        if (listaProductos[i].nombre == nombre) {
 
             listaProductos.erase(listaProductos.begin() + i);
             break;

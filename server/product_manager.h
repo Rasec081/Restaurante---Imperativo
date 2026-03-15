@@ -10,7 +10,6 @@ using namespace std;
 
 
 struct Producto {
-    int id;
     string nombre;
     float precio;
 };
@@ -19,14 +18,13 @@ class ProductManager {
 
 private:
     vector<Producto> listaProductos;
-    int cantidad;
 
 public:
     ProductManager();
 
     vector<Producto> crearProducto(string nombre, float precio);
-    void actualizarProducto(int id, string nombre, float precio);
+    void actualizarProducto(string nombre, string nuevoNombre, float precio);
     vector<Producto> getProductos();
-    void eliminarProducto(int id);
+    void eliminarProducto(string nombre);
 };
 #endif //IMPERATIVO_PRODUCT_MANAGER_H
