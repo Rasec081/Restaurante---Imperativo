@@ -3,4 +3,8 @@ project(Imperativo)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Imperativo main.cpp)
+add_executable(Imperativo main.cpp
+        server/config.cpp
+        server/product_manager.cpp
+        server/product_manager.h)
+
