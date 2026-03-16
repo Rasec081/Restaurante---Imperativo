@@ -30,7 +30,6 @@ void ProductManager::actualizarProducto(string nombre, string nuevoNombre, float
     }
 }
 
-
 vector<Producto> ProductManager::getProductos() {
 
     return listaProductos;
