@@ -1,66 +1,44 @@
-# =========================
+# Prerequisites
+*.d
+
 # Compiled Object files
-# =========================
+*.slo
+*.lo
 *.o
 *.obj
-*.lo
-*.slo
 
-# =========================
 # Precompiled Headers
-# =========================
 *.gch
 *.pch
 
-# =========================
 # Linker files
-# =========================
 *.ilk
 
-# =========================
 # Debugger Files
-# =========================
 *.pdb
-*.dwo
 
-# =========================
-# Dynamic libraries
-# =========================
+# Compiled Dynamic libraries
 *.so
 *.dylib
 *.dll
 
-# =========================
-# Static libraries
-# =========================
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
 *.a
 *.lib
-*.la
-*.lai
 
-# =========================
 # Executables
-# =========================
 *.exe
 *.out
 *.app
 
-# =========================
-# CMake build folders
-# =========================
-cmake-build-debug/
-cmake-build-debug-wsl/
-build/
-
-# =========================
-# CLion / JetBrains files
-# =========================
-.idea/
-*.iml
-
-# =========================
-# System files
-# =========================
-.DS_Store
+# debug information files
+*.dwo
 
 CMakeLists.txt
+.idea
