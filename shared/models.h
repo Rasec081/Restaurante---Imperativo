@@ -16,7 +16,7 @@ struct ProductoEscogido {
     int cantidad;
 };
 
-struct Orden {
+struct crearOrden {
     int id; // cuando se crea desde la consola cliente, se pone como 0.
     int numeroMesa;
     vector<ProductoEscogido> productos;
