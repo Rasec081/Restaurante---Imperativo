@@ -14,7 +14,7 @@ class OrderManager {
 
 private:
 
-    vector<crearOrden> orders;   // todas las órdenes que llegan a la cocina
+    vector<Orden> orders;   // todas las órdenes que llegan a la cocina
     int nextId;
     int totalMesas;
 
@@ -22,7 +22,7 @@ public:
 
     OrderManager();
 
-    void addOrder(crearOrden orden);
+    void addOrder(Orden orden);
 
     void deleteOrder(int order_id);
 
@@ -30,7 +30,7 @@ public:
 
     void completeOrder(int order_id);
 
-    vector<crearOrden> getOrders();
+    vector<Orden> getOrders();
 
 };
 
