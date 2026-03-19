@@ -34,45 +34,49 @@ int main() {
     printf("Server listening...\n");
 
     int client_number = 0;
+
     while(true) {
 
-        // Aceptar conexion del cliente
         int client_socket = accept(server_socket, NULL, NULL);
+
 
         client_number++;
 
-        if(client_socket < 0){
-            perror("Accept failed");
-            continue;
+        pid_t pid = fork();
+
+        if(pid == 0) {
+            // Proceso hijo
+
+            close(server_socket);
+            printf("Client %d connected\n", client_number);
+
+            // Buffer para recibir datos
+            char buffer[1024];
+
+            while(true) {
+
+                memset(buffer,0,sizeof(buffer));
+
+                int bytes = recv(client_socket, buffer, sizeof(buffer)-1, 0);
+
+                if(bytes <= 0)
+                    break;
+
+                printf("Client %d: %s", client_number, buffer);
+
+                // Enviar respuesta al cliente
+                send(client_socket,"Mensaje recibido",17,0);
+            }
+
+            printf("Client %d disconnected\n", client_number);
+            close(client_socket);
+            exit(0);
         }
-
-        printf("Client %d connected\n", client_number);
-
-        // Buffer para recibir datos
-        char buffer[1024];
-
-        while(true) {
-
-            memset(buffer,0,sizeof(buffer));
-
-            int bytes = recv(client_socket, buffer, sizeof(buffer)-1, 0);
-
-            if(bytes <= 0)
-                break;
-
-            printf("Client %d: %s", client_number, buffer);
-
-            // Enviar respuesta al cliente
-            send(client_socket,"Mensaje recibido",17,0);
+        else {
+            // Proceso padre
+            close(client_socket);
         }
-
-        printf("Client %d disconnected\n", client_number);
-
-        // Cerrar conexion del cliente al desconectarse
-        close(client_socket);
     }
-
-    close(server_socket);
 
     return 0;
 }
