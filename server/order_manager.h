@@ -1,45 +1,36 @@
+//
+// Created by Daniel on 15/3/2026.
+//
+
 #ifndef IMPERATIVO_ORDER_MANAGER_H
 #define IMPERATIVO_ORDER_MANAGER_H
 
-#include <string>
+#include "../shared/models.h"
 #include <vector>
 
 using namespace std;
-
-//**** STRUCTS ****//
-
-struct OrderItem { //struc temporal en lo que recibo el .h de Luis y Jime, ya despues solo hago un inclde del h de ellos
-    string producto;
-    int cantidad;
-};
-
-struct Order {
-    int order_id;
-    int mesa;
-    vector<OrderItem> items;
-    bool completada; //i no completa y 1 es completada
-};
 
 class OrderManager {
 
 private:
 
-    vector<Order> orders; //todas las ordenes que va ahaber en la cocina
+    vector<crearOrden> orders;   // todas las órdenes que llegan a la cocina
     int nextId;
+    int totalMesas;
 
 public:
 
     OrderManager();
 
-    void addOrder(int mesa, vector<OrderItem> items);
+    void addOrder(crearOrden orden);
 
     void deleteOrder(int order_id);
 
-    void updateOrder(int order_id, vector<OrderItem> items);
+    void updateOrder(int order_id, vector<ProductoEscogido> productos);
 
     void completeOrder(int order_id);
 
-    vector<Order> getOrders();
+    vector<crearOrden> getOrders();
 
 };
 

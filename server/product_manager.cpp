@@ -18,12 +18,23 @@ vector<Producto> ProductManager::crearProducto(string nombre, float precio) {
     return listaProductos;
 }
 
-void ProductManager::actualizarProducto(string nombre, string nuevoNombre, float precio) {
+
+void ProductManager::actualizarProducto(string nombre, string nuevoNombre) {
 
     for (int i = 0; i < listaProductos.size(); i++) {
 
         if (listaProductos[i].nombre == nombre) {
             listaProductos[i].nombre = nuevoNombre;
+            break;
+        }
+    }
+}
+
+void ProductManager::actualizarProducto(string nombre, float precio) {
+
+    for (int i = 0; i < listaProductos.size(); i++) {
+
+        if (listaProductos[i].nombre == nombre) {
             listaProductos[i].precio = precio;
             break;
         }

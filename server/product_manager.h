@@ -23,7 +23,8 @@ public:
     ProductManager();
 
     vector<Producto> crearProducto(string nombre, float precio);
-    void actualizarProducto(string nombre, string nuevoNombre, float precio);
+    void actualizarProducto(string nombre, string nuevoNombre);
+    void actualizarProducto(string nombre, float precio);
     vector<Producto> getProductos();
     void eliminarProducto(string nombre);
 };
