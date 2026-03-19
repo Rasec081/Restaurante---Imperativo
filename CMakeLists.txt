@@ -3,4 +3,7 @@ project(Imperativo)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Imperativo main.cpp)
+add_executable(Imperativo main.cpp
+        server/order_manager.h
+        shared/models.h
+        server/order_manager.cpp)

@@ -2,12 +2,9 @@
 #define MODELS_H
 
 #include <string>
+#include <vector>
+using namespace std;
 
-struct Orden {
-    int id;
-    int mesa;
-
-};
 
 struct Producto {
     std::string nombre;
@@ -17,6 +14,13 @@ struct Producto {
 struct ProductoEscogido {
     std::string nombre;
     int cantidad;
+};
+
+struct Orden {
+    int id; // cuando se crea desde la consola cliente, se pone como 0.
+    int numeroMesa;
+    vector<ProductoEscogido> productos;
+    bool estado;
 };
 
 #endif
