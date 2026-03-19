@@ -20,6 +20,7 @@ struct Orden {
     int id; // cuando se crea desde la consola cliente, se pone como 0.
     int numeroMesa;
     vector<ProductoEscogido> productos;
+    bool estado;
 };
 
 #endif

@@ -16,12 +16,13 @@ private:
 
     vector<Orden> orders;   // todas las órdenes que llegan a la cocina
     int nextId;
+    int totalMesas;
 
 public:
 
     OrderManager();
 
-    void addOrder(int mesa, vector<ProductoEscogido> productos);
+    void addOrder(Orden orden);
 
     void deleteOrder(int order_id);
 

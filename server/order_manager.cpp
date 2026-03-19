@@ -7,18 +7,26 @@
 
 using namespace std;
 
+// poner la variable de numeros de mesa
+/*
+ * es en este documento que deberiamos de tener la variable global de los numeros
+ * de mesas? y si sí entonces tambien deberia d ehacer una funcion para modificar
+ * numero de mesas no?
+ */
+
 OrderManager::OrderManager() {
     nextId = 1;
+    totalMesas = 20;
 }
 
-void OrderManager::addOrder(int mesa, vector<ProductoEscogido> productos) {
+void OrderManager::addOrder(Orden orden) {
 
-    Orden nuevaOrden;
-    nuevaOrden.id = nextId++;
-    nuevaOrden.mesa = mesa;
-    //si Luis le agrega el vector aca va productos
-    orders.push_back(nuevaOrden);
+    orden.id = nextId++;      //e l id viene en 0 entonces le pongo uno correcto
+    orden.estado = false;     //por si acso
 
+    orders.push_back(orden);  /*aca ya estoy guartdando el id, numero de la mesa,
+                                la lista de comidas y sus cantidades, y el estado
+                                cada elemento del vector*/
 }
 
 void OrderManager::deleteOrder(int order_id) { //aca va opcional porque no se como el cliente va a saber el id,
@@ -32,24 +40,41 @@ void OrderManager::deleteOrder(int order_id) { //aca va opcional porque no se co
     }
 }
 
+/*
+ * aca no seria mejor en vez de id tal vez poner el numero de la mesa para así
+ * buscar la orden que este pendiente y ademas tenga ese mismo numero de mesa?
+ *
+ *
+ *podria pasar los productos por referencia a pesar de ser con sockets?
+ */
 void OrderManager::updateOrder(int order_id, vector<ProductoEscogido> productos) {
 
     for (int i = 0; i < orders.size(); i++) {
         if (orders[i].id == order_id) {
 
             // seria con el vector d ela estructura
+            orders[i].productos = productos;
+
+
             return;
         }
     }
 }
 
-void OrderManager::completeOrder(int order_id) {
 
+void OrderManager::completeOrder(int order_id) {
+    /*
+     * aca no seria mejor en vez de id tal vez poner el numero de la mesa para así
+     * buscar la orden que este pendiente y ademas tenga ese mismo numero de mesa?
+     * y así lo ponermos ya como completado?
+     * es que sino el cliente tendria que saber el id de las oprdenes y eso no
+     * tiene snetido
+     */
     for (int i = 0; i < orders.size(); i++) {
         if (orders[i].id == order_id) {
 
             // si Orden tuviera estado:
-            // orders[i].completada = true;
+            orders[i].estado = true;
 
             return;
         }
