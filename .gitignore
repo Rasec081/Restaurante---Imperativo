@@ -44,3 +44,4 @@ CMakeLists.txt
 .idea
 
 *.bin
+.idea/*
