@@ -1,0 +1,8 @@
+//
+// Created by Daniel on 22/3/2026.
+//
+
+#ifndef IMPERATIVO_NETWORK_CLIENT_H
+#define IMPERATIVO_NETWORK_CLIENT_H
+
+#endif //IMPERATIVO_NETWORK_CLIENT_H
