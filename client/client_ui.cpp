@@ -5,10 +5,18 @@
 #include <iomanip> // setw, left, right
 
 #include "../shared/models.h"
+#include "../network_client.h"
 #include "client_logic.h"
 #include <limits>
+#include <nlohmann/json.hpp>
+
 
 using namespace std;
+using json = nlohmann::json;
+using namespace std;
+
+// declarar función externa
+void sendJSON(json request);
 
 void esperar() {
     cout << "Presiona Enter para continuar...";
@@ -175,10 +183,9 @@ void menuCrearOrden() {
     int opcion = 3;
 
     vector<ProductoEscogido> productosEscogidos;
+    int mesa;
 
     while (opcion == 3) {
-
-        int mesa;
 
         cout << "\n====================================================== CREAR ORDEN ======================================================\n";
         cout << endl;
@@ -205,7 +212,19 @@ void menuCrearOrden() {
 
     // - Si desea guardar la orden
     if (opcion == 1) {
+        /*estandarizarlo y qyuitarlo de aqui*********************************************/
+        json request;
+        request["type"] = "ADD_ORDER";
+        request["mesa"] = mesa;
 
+        for (auto& p : productosEscogidos) {
+            json prod;
+            prod["nombre"] = p.nombre;
+            prod["cantidad"] = p.cantidad;
+            request["productos"].push_back(prod);
+        }
+
+        sendJSON(request);
     }
 
     cout << "\n====================================================== FIN CREAR ORDEN ======================================================" << endl;
