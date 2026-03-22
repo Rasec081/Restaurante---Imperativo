@@ -7,19 +7,16 @@
 
 using namespace std;
 
-// poner la variable de numeros de mesa
-/*
- * es en este documento que deberiamos de tener la variable global de los numeros
- * de mesas? y si sí entonces tambien deberia d ehacer una funcion para modificar
- * numero de mesas no?
- */
+vector<Orden> orders;
+int nextId;
+int totalMesas;
 
-OrderManager::OrderManager() {
+void initOrderManager() {
     nextId = 1;
     totalMesas = 20;
 }
 
-void OrderManager::addOrder(Orden orden) {
+void addOrder(Orden orden) {
 
     orden.id = nextId++;      //e l id viene en 0 entonces le pongo uno correcto
     orden.estado = false;     //por si acso
@@ -29,7 +26,7 @@ void OrderManager::addOrder(Orden orden) {
                                 cada elemento del vector*/
 }
 
-void OrderManager::deleteOrder(int order_id) { //aca va opcional porque no se como el cliente va a saber el id,
+void deleteOrder(int order_id) { //aca va opcional porque no se como el cliente va a saber el id,
                                                 //tal vez sea mejor buscar por numero de mesa
 
     for (int i = 0; i < orders.size(); i++) {
@@ -47,7 +44,7 @@ void OrderManager::deleteOrder(int order_id) { //aca va opcional porque no se co
  *
  *podria pasar los productos por referencia a pesar de ser con sockets?
  */
-void OrderManager::updateOrder(int order_id, vector<ProductoEscogido> productos) {
+void updateOrder(int order_id, vector<ProductoEscogido> productos) {
 
     for (int i = 0; i < orders.size(); i++) {
         if (orders[i].id == order_id) {
@@ -62,7 +59,7 @@ void OrderManager::updateOrder(int order_id, vector<ProductoEscogido> productos)
 }
 
 
-void OrderManager::completeOrder(int order_id) {
+void completeOrder(int order_id) {
     /*
      * aca no seria mejor en vez de id tal vez poner el numero de la mesa para así
      * buscar la orden que este pendiente y ademas tenga ese mismo numero de mesa?
@@ -81,6 +78,10 @@ void OrderManager::completeOrder(int order_id) {
     }
 }
 
-vector<Orden> OrderManager::getOrders() {
+vector<Orden> getOrders() {
     return orders;
+}
+
+int getTotalMesas() {
+    return totalMesas;
 }
