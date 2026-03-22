@@ -16,5 +16,6 @@ void actualizarProducto(string nombre, string nuevoNombre);
 void actualizarProducto(string nombre, float precio);
 vector<Producto> getProductos();
 void eliminarProducto(string nombre);
+void addProducts();
 
 #endif //IMPERATIVO_PRODUCT_MANAGER_H

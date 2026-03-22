@@ -11,13 +11,18 @@
 #include <nlohmann/json.hpp>
 
 #include "server/order_manager.h"
+#include "server/product_manager.h"
+#include "shared/models.h"
 
 using namespace std;
 using json = nlohmann::json;
 
-OrderManager orderManager;
+
 
 int main() {
+    initOrderManager();
+    initOrderManager();
+
 
     int server_socket = socket(AF_INET, SOCK_STREAM, 0);
 
@@ -38,6 +43,9 @@ int main() {
 
     listen(server_socket, 5);
     cout << "Server listening...\n";
+
+    //le metemos los productos antes de que se coencten los clientes
+    addProducts();
 
     while(true) {
 
@@ -74,8 +82,21 @@ int main() {
                     // ADD ORDER
                     // ========================
                     if (type == "ADD_ORDER") {
+                        /*
+                     * validar numeros de mesa siempre
+                     */
 
                         int mesa = request["mesa"];
+
+                        if (mesa <= 0 || mesa > getTotalMesas()) {
+                            json error;
+                            error["status"] = "ERROR";
+                            error["message"] = "Mesa inválida";
+
+                            string resp = error.dump();
+                            send(client_socket, resp.c_str(), resp.size(), 0);
+                            continue;
+                        }
 
                         vector<ProductoEscogido> productos;
 
@@ -91,7 +112,7 @@ int main() {
                         orden.numeroMesa = mesa;
                         orden.productos = productos;
 
-                        orderManager.addOrder(orden);
+                        addOrder(orden);
 
                         json response;
                         response["status"] = "OK";
@@ -106,7 +127,7 @@ int main() {
                     // ========================
                     else if (type == "GET_ORDERS") {
 
-                        vector<Orden> orders = orderManager.getOrders();
+                        vector<Orden> orders = getOrders();
 
                         json response;
                         response["status"] = "OK";
@@ -131,7 +152,7 @@ int main() {
                     else if (type == "COMPLETE_ORDER") {
 
                         int id = request["id"];
-                        orderManager.completeOrder(id);
+                        completeOrder(id);
 
                         json response;
                         response["status"] = "OK";
@@ -140,6 +161,138 @@ int main() {
                         string resp = response.dump();
                         send(client_socket, resp.c_str(), resp.size(), 0);
                     }
+
+                    /*
+                     * updateOrder
+                    *
+                     * validar numeros de mesa siempre
+                     */
+                    else if (type == "UPDATE_ORDER") {
+
+                        int id = request["id"];
+
+                        vector<ProductoEscogido> productos;
+
+                        for (auto& p : request["productos"]) {
+                            ProductoEscogido prod;
+                            prod.nombre = p["nombre"];
+                            prod.cantidad = p["cantidad"];
+                            productos.push_back(prod);
+                        }
+
+                        updateOrder(id, productos);
+
+                        json response;
+                        response["status"] = "OK";
+                        response["message"] = "ORDER_UPDATED";
+
+                        string resp = response.dump();
+                        send(client_socket, resp.c_str(), resp.size(), 0);
+                    }
+
+
+                    /*
+                     * saber cuando el cliente me pide ver los platillos
+                     * y enviarselos
+                     */
+                    else if (type == "GET_PRODUCTS") {
+
+                        vector<Producto> productos = getProductos();
+
+                        json response;
+                        response["status"] = "OK";
+
+                        for (auto& p : productos) {
+                            json prod;
+                            prod["nombre"] = p.nombre;
+                            prod["precio"] = p.precio;
+
+                            response["productos"].push_back(prod);
+                        }
+
+                        string resp = response.dump();
+                        send(client_socket, resp.c_str(), resp.size(), 0);
+                    }
+
+                    /*
+                     * borrar orden
+                     */
+                    else if (type == "DELETE_ORDER") {
+
+                        int id = request["id"];
+
+                        deleteOrder(id);
+
+                        json response;
+                        response["status"] = "OK";
+                        response["message"] = "ORDER_DELETED";
+
+                        string resp = response.dump();
+                        send(client_socket, resp.c_str(), resp.size(), 0);
+                    }
+
+
+                    /*
+                     * añadir producto
+                     */
+                    else if (type == "ADD_PRODUCT") {
+
+                        string nombre = request["nombre"];
+                        float precio = request["precio"];
+
+                        crearProducto(nombre, precio);
+
+                        json response;
+                        response["status"] = "OK";
+                        response["message"] = "PRODUCT_ADDED";
+
+                        string resp = response.dump();
+                        send(client_socket, resp.c_str(), resp.size(), 0);
+                    }
+
+                    /*
+                     * aeditar producto
+                     */
+                    else if (type == "UPDATE_PRODUCT") {
+
+                        string nombre = request["nombre"];
+
+                        if (request.contains("nuevoNombre")) {
+                            string nuevoNombre = request["nuevoNombre"];
+                            actualizarProducto(nombre, nuevoNombre);
+                        }
+
+                        if (request.contains("precio")) {
+                            float precio = request["precio"];
+                            actualizarProducto(nombre, precio);
+                        }
+
+                        json response;
+                        response["status"] = "OK";
+                        response["message"] = "PRODUCT_UPDATED";
+
+                        string resp = response.dump();
+                        send(client_socket, resp.c_str(), resp.size(), 0);
+                    }
+
+                    /*
+                     * eliminar producto
+                     */
+                    else if (type == "DELETE_PRODUCT") {
+
+                        string nombre = request["nombre"];
+
+                        eliminarProducto(nombre);
+
+                        json response;
+                        response["status"] = "OK";
+                        response["message"] = "PRODUCT_DELETED";
+
+                        string resp = response.dump();
+                        send(client_socket, resp.c_str(), resp.size(), 0);
+                    }
+
+
 
                 } catch (exception &e) {
                     cout << "Error parsing JSON: " << e.what() << endl;

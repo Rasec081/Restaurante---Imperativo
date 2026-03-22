@@ -35,3 +35,8 @@ void sendJSON(json request) {
 
     cout << "\nRespuesta del servidor:\n" << buffer << endl;
 }
+
+/*
+ * no deberia de haber un while que este esperando escuchar si el server nos dice algo?
+ *
+ */

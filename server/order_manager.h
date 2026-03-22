@@ -10,28 +10,28 @@
 
 using namespace std;
 
-class OrderManager {
 
-private:
 
-    vector<Orden> orders;   // todas las órdenes que llegan a la cocina
-    int nextId;
-    int totalMesas;
+extern vector<Orden> orders;
+extern int nextId;
+extern int totalMesas;
 
-public:
 
-    OrderManager();
 
-    void addOrder(Orden orden);
+void initOrderManager();
 
-    void deleteOrder(int order_id);
+void addOrder(Orden orden);
 
-    void updateOrder(int order_id, vector<ProductoEscogido> productos);
+void deleteOrder(int order_id);
 
-    void completeOrder(int order_id);
+void updateOrder(int order_id, vector<ProductoEscogido> productos);
 
-    vector<Orden> getOrders();
+void completeOrder(int order_id);
 
-};
+vector<Orden> getOrders();
+
+int getTotalMesas();
+
+
 
 #endif

@@ -58,3 +58,15 @@ void eliminarProducto(string nombre) {
         }
     }
 }
+
+void addProducts() {
+    listaProductos.push_back({"Pizza", 3500});
+    listaProductos.push_back({"Hamburguesa", 4000});
+    listaProductos.push_back({"Refresco", 1000});
+    listaProductos.push_back({"Tacos al pastor", 2500});
+    listaProductos.push_back({"Enchiladas verdes", 2800});
+    listaProductos.push_back({"Ceviche", 3200});
+    listaProductos.push_back({"Paella", 4500});
+    listaProductos.push_back({"Sushi", 3800});
+    listaProductos.push_back({"Milanesa", 3000});
+    listaProductos.push_back({"Flan napolitano", 1500});
