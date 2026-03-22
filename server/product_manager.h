@@ -4,28 +4,17 @@
 
 #ifndef IMPERATIVO_PRODUCT_MANAGER_H
 #define IMPERATIVO_PRODUCT_MANAGER_H
+#include "../shared/models.h"
 #include <string>
 #include <vector>
 using namespace std;
 
+extern vector<Producto> listaProductos;
 
-struct Producto {
-    string nombre;
-    float precio;
-};
+vector<Producto> crearProducto(string nombre, float precio);
+void actualizarProducto(string nombre, string nuevoNombre);
+void actualizarProducto(string nombre, float precio);
+vector<Producto> getProductos();
+void eliminarProducto(string nombre);
 
-class ProductManager {
-
-private:
-    vector<Producto> listaProductos;
-
-public:
-    ProductManager();
-
-    vector<Producto> crearProducto(string nombre, float precio);
-    void actualizarProducto(string nombre, string nuevoNombre);
-    void actualizarProducto(string nombre, float precio);
-    vector<Producto> getProductos();
-    void eliminarProducto(string nombre);
-};
 #endif //IMPERATIVO_PRODUCT_MANAGER_H
