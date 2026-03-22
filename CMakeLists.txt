@@ -15,8 +15,9 @@ include_directories(
 # SERVER
 # ======================
 add_executable(server_app
-        network_server.cpp
+        server/network_server.cpp
         server/order_manager.cpp
+        server/product_manager.cpp
 )
 
 target_link_libraries(server_app nlohmann_json::nlohmann_json)
@@ -28,7 +29,7 @@ add_executable(client_app
         client/client_app.cpp
         client/client_ui.cpp
         client/client_logic.cpp
-        network_client.cpp
+        client/network_client.cpp
 )
 
 target_link_libraries(client_app nlohmann_json::nlohmann_json)
