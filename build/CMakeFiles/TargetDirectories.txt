@@ -1,4 +1,0 @@
-/home/danielmorera/projects/build/CMakeFiles/server_app.dir
-/home/danielmorera/projects/build/CMakeFiles/client_app.dir
-/home/danielmorera/projects/build/CMakeFiles/edit_cache.dir
-/home/danielmorera/projects/build/CMakeFiles/rebuild_cache.dir

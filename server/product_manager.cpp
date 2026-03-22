@@ -70,3 +70,4 @@ void addProducts() {
     listaProductos.push_back({"Sushi", 3800});
     listaProductos.push_back({"Milanesa", 3000});
     listaProductos.push_back({"Flan napolitano", 1500});
+}
