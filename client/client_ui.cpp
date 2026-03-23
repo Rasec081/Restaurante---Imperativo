@@ -5,8 +5,9 @@
 #include <iomanip> // setw, left, right
 
 #include "../shared/models.h"
-#include "../network_client.h"
+#include "network_client.h"
 #include "client_logic.h"
+#include "client_ui.h"
 #include <limits>
 #include <nlohmann/json.hpp>
 
@@ -16,7 +17,7 @@ using json = nlohmann::json;
 using namespace std;
 
 // declarar función externa
-void sendJSON(json request);
+json sendJSON(json request);
 
 void esperar() {
     cout << "Presiona Enter para continuar...";
@@ -153,7 +154,12 @@ vector<ProductoEscogido> escogerProductos(vector<ProductoEscogido>& productosEsc
                     cout << "Este producto ya lo has seleccionado antes." << endl;
                     cout << "Ingresa la cantidad nueva a solicitar del producto: ";
                     cin >> cantidad;
-                    actualizarProductoEscogido(productosEscogidos, nombreProducto, cantidad);
+
+                    if (cantidad == 0) {
+                        eliminarProductoEscogido(productosEscogidos, nombreProducto);
+                    } else {
+                        actualizarProductoEscogido(productosEscogidos, nombreProducto, cantidad);
+                    }
 
                     //sino se agrega al vector
                 }else {
@@ -177,7 +183,30 @@ vector<ProductoEscogido> escogerProductos(vector<ProductoEscogido>& productosEsc
     return productosEscogidos;
 }
 
+void mostrarOrdenes(const vector<json>& orders) {
 
+    cout << "\n====================== ORDENES ======================\n";
+
+    cout << left << setw(10) << "ID"
+         << setw(15) << "Mesa"
+         << setw(20) << "Estado" << endl;
+
+    cout << "====================================================\n";
+
+    for (auto& o : orders) {
+
+        int id = o["id"].get<int>();
+        int mesa = o["mesa"].get<int>();
+        string estado = o["estado"].get<string>();
+
+        cout << left << setw(10) << id
+             << setw(15) << mesa
+             << setw(20) << estado
+             << endl;
+    }
+
+    cout << "====================================================\n";
+}
 
 void menuCrearOrden() {
     // menu para crear orden
@@ -192,6 +221,13 @@ void menuCrearOrden() {
         cout << endl;
         cout << "1. Número de mesa: " << endl;
         cin >> mesa;
+
+        if (validarMesa(mesa) {
+            cout << "Mesa inválida.\n";
+            esperar();
+            return;
+        }
+}
         cout << "2. Seleccionar productos: " << endl;
         escogerProductos(productosEscogidos);
 
@@ -203,9 +239,9 @@ void menuCrearOrden() {
         cout << " ====================================================== ================= ======================================================" << endl;
 
         cout << endl;
-        cout << "Qué desea hacer con la orden ?" << endl;
+        cout << "Qué desea hacer con la orden?" << endl;
         cout << "1. Salir y registrar la orden." << endl;
-        cout << "2. Salir y no guardar la orden ." << endl;
+        cout << "2. Salir y no guardar la orden." << endl;
         cout << "3. Modificar la orden." << endl;
         cin >> opcion;
 
@@ -230,6 +266,70 @@ void menuCrearOrden() {
 
     cout << "\n====================================================== FIN CREAR ORDEN ======================================================" << endl;
 
+}
+
+void menuModificarOrden() {
+    int opcion = 2;
+
+    vector<ProductoEscogido> productosEscogidos;
+    int id;
+
+    while (opcion == 2) {
+
+        cout << "\n====================================================== MODIFICAR ORDEN ======================================================\n";
+        cout << endl;
+        vector<json> ordenes = obtenerOrdenes();
+
+        // 👇 AQUI
+        if (ordenes.empty()) {
+            cout << "\nNo hay órdenes registradas.\n";
+            esperar();
+            return;
+        }
+
+        mostrarOrdenes(ordenes);
+        cout << "1. ID de la orden: " << endl;
+        cin >> id;
+
+        cout << "2. Seleccionar productos: " << endl;
+        productosEscogidos = obtenerDetalleOrden(id);
+        mostrarProductosEscogidos(productosEscogidos);
+        escogerProductos(productosEscogidos);
+
+        cout << " ====================================================== DATOS DE LA ORDEN ======================================================" << endl;
+        cout << "--- ID de la orden: " << id << endl;
+        cout << endl;
+        cout << "--- Productos seleccionados: " << endl;
+        mostrarProductosEscogidos(productosEscogidos);
+        cout << " ====================================================== ================= ======================================================" << endl;
+
+        cout << endl;
+        cout << "Qué desea hacer con la orden?" << endl;
+        cout << "1. Guardar cambios y salir." << endl;
+        cout << "2. Modificar nuevamente." << endl;
+        cout << "3. Cancelar." << endl;
+        cin >> opcion;
+
+    }
+
+    if (opcion == 1) {
+
+        json request;
+        request["type"] = "UPDATE_ORDER";
+        request["id"] = id;
+
+        for (auto& p : productosEscogidos) {
+            json prod;
+            prod["nombre"] = p.nombre;
+            prod["cantidad"] = p.cantidad;
+            request["productos"].push_back(prod);
+        }
+
+        sendJSON(request);
+
+    }
+
+    cout << "\n====================================================== FIN MODIFICAR ORDEN ======================================================" << endl;
 }
 
 
@@ -260,7 +360,7 @@ void menuPrincipal() {
 
             case 2:
                 cout << "2. Modificar orden\n";
-                //modificarOrden();
+                menuModificarOrden();
                 break;
 
             case 3:

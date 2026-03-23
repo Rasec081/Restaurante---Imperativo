@@ -25,7 +25,7 @@ void initConnection() {
     connect(client_socket, (struct sockaddr *)&server, sizeof(server));
 }
 
-void sendJSON(json request) {
+json sendJSON(json request) {
     string msg = request.dump();
     send(client_socket, msg.c_str(), msg.size(), 0);
 
@@ -33,5 +33,22 @@ void sendJSON(json request) {
     memset(buffer, 0, sizeof(buffer));
     recv(client_socket, buffer, sizeof(buffer), 0);
 
-    cout << "\nRespuesta del servidor:\n" << buffer << endl;
+    cout << "\nRESPUESTA:\n" << buffer << endl;
+
+    json response;
+
+    try {
+        response = json::parse(buffer);
+    } catch (...) {
+        cout << "Error parseando JSON\n";
+        response["status"] = "ERROR";
+        response["message"] = "Invalid JSON";
+    }
+
+    return response;
 }
+
+/*
+ * no deberia de haber un while que este esperando escuchar si el server nos dice algo?
+ *
+ */

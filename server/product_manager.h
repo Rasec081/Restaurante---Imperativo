@@ -10,20 +10,15 @@
 
 using namespace std;
 
-class ProductManager {
+extern vector<Producto> listaProductos;
 
-private:
-    vector<Producto> listaProductos;
+vector<Producto> crearProducto(string nombre, float precio);
+void actualizarProducto(string nombre, string nuevoNombre);
+void actualizarProducto(string nombre, float precio);
+vector<Producto> getProductos();
+void eliminarProducto(string nombre);
+bool existeProducto(string nombre);
+Producto buscarProducto(string nombre);
+void addProducts();
 
-public:
-    ProductManager();
-
-    vector<Producto> crearProducto(string nombre, float precio);
-    void actualizarProducto(string nombre, string nuevoNombre);
-    void actualizarProducto(string nombre, float precio);
-    vector<Producto> getProductos();
-    void eliminarProducto(string nombre);
-    bool existeProducto(string nombre);
-    Producto buscarProducto(string nombre);
-};
 #endif //IMPERATIVO_PRODUCT_MANAGER_H

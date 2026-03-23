@@ -6,8 +6,9 @@
 #include <string>
 #include <iomanip>
 using namespace std;
-ProductManager::ProductManager() {}
-vector<Producto> ProductManager::crearProducto(string nombre, float precio) {
+vector<Producto> listaProductos;
+
+vector<Producto> crearProducto(string nombre, float precio) {
 
     Producto nuevoProducto;
     nuevoProducto.nombre = nombre;
@@ -19,7 +20,7 @@ vector<Producto> ProductManager::crearProducto(string nombre, float precio) {
 }
 
 
-void ProductManager::actualizarProducto(string nombre, string nuevoNombre) {
+void actualizarProducto(string nombre, string nuevoNombre) {
 
     for (int i = 0; i < listaProductos.size(); i++) {
 
@@ -30,7 +31,7 @@ void ProductManager::actualizarProducto(string nombre, string nuevoNombre) {
     }
 }
 
-void ProductManager::actualizarProducto(string nombre, float precio) {
+void actualizarProducto(string nombre, float precio) {
 
     for (int i = 0; i < listaProductos.size(); i++) {
 
@@ -41,12 +42,12 @@ void ProductManager::actualizarProducto(string nombre, float precio) {
     }
 }
 
-vector<Producto> ProductManager::getProductos() {
+vector<Producto> getProductos() {
 
     return listaProductos;
 }
 
-void ProductManager::eliminarProducto(string nombre) {
+void eliminarProducto(string nombre) {
 
     for (int i = 0; i < listaProductos.size(); i++) {
 
@@ -74,4 +75,17 @@ Producto ProductManager::buscarProducto(string nombre) {
             return listaProductos[i];
         }
     }
+}
+
+void addProducts() {
+    listaProductos.push_back({"Pizza", 3500});
+    listaProductos.push_back({"Hamburguesa", 4000});
+    listaProductos.push_back({"Refresco", 1000});
+    listaProductos.push_back({"Tacos al pastor", 2500});
+    listaProductos.push_back({"Enchiladas verdes", 2800});
+    listaProductos.push_back({"Ceviche", 3200});
+    listaProductos.push_back({"Paella", 4500});
+    listaProductos.push_back({"Sushi", 3800});
+    listaProductos.push_back({"Milanesa", 3000});
+    listaProductos.push_back({"Flan napolitano", 1500});
 }

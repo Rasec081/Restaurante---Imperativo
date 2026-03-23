@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/Imperativo.dir/main.cpp.o CMakeFiles/Imperativo.dir/server/products_ui.cpp.o CMakeFiles/Imperativo.dir/server/app.cpp.o CMakeFiles/Imperativo.dir/server/order_manager.cpp.o CMakeFiles/Imperativo.dir/server/product_manager.cpp.o CMakeFiles/Imperativo.dir/server/orders_ui.cpp.o CMakeFiles/Imperativo.dir/server/table_numbers_ui.cpp.o -o Imperativo 
