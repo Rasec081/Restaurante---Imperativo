@@ -57,3 +57,21 @@ void ProductManager::eliminarProducto(string nombre) {
         }
     }
 }
+
+bool ProductManager::existeProducto(string nombre) {
+    for (int i = 0; i < listaProductos.size(); i++) {
+        if (listaProductos[i].nombre == nombre) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+Producto ProductManager::buscarProducto(string nombre) {
+    for (int i = 0; i < listaProductos.size(); i++) {
+        if (listaProductos[i].nombre == nombre) {
+            return listaProductos[i];
+        }
+    }
+}

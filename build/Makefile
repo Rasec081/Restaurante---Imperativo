@@ -177,6 +177,78 @@ server/app.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/app.cpp.s
 .PHONY : server/app.cpp.s
 
+server/order_manager.o: server/order_manager.cpp.o
+.PHONY : server/order_manager.o
+
+# target to build an object file
+server/order_manager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/order_manager.cpp.o
+.PHONY : server/order_manager.cpp.o
+
+server/order_manager.i: server/order_manager.cpp.i
+.PHONY : server/order_manager.i
+
+# target to preprocess a source file
+server/order_manager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/order_manager.cpp.i
+.PHONY : server/order_manager.cpp.i
+
+server/order_manager.s: server/order_manager.cpp.s
+.PHONY : server/order_manager.s
+
+# target to generate assembly for a file
+server/order_manager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/order_manager.cpp.s
+.PHONY : server/order_manager.cpp.s
+
+server/orders_ui.o: server/orders_ui.cpp.o
+.PHONY : server/orders_ui.o
+
+# target to build an object file
+server/orders_ui.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/orders_ui.cpp.o
+.PHONY : server/orders_ui.cpp.o
+
+server/orders_ui.i: server/orders_ui.cpp.i
+.PHONY : server/orders_ui.i
+
+# target to preprocess a source file
+server/orders_ui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/orders_ui.cpp.i
+.PHONY : server/orders_ui.cpp.i
+
+server/orders_ui.s: server/orders_ui.cpp.s
+.PHONY : server/orders_ui.s
+
+# target to generate assembly for a file
+server/orders_ui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/orders_ui.cpp.s
+.PHONY : server/orders_ui.cpp.s
+
+server/product_manager.o: server/product_manager.cpp.o
+.PHONY : server/product_manager.o
+
+# target to build an object file
+server/product_manager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/product_manager.cpp.o
+.PHONY : server/product_manager.cpp.o
+
+server/product_manager.i: server/product_manager.cpp.i
+.PHONY : server/product_manager.i
+
+# target to preprocess a source file
+server/product_manager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/product_manager.cpp.i
+.PHONY : server/product_manager.cpp.i
+
+server/product_manager.s: server/product_manager.cpp.s
+.PHONY : server/product_manager.s
+
+# target to generate assembly for a file
+server/product_manager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/product_manager.cpp.s
+.PHONY : server/product_manager.cpp.s
+
 server/products_ui.o: server/products_ui.cpp.o
 .PHONY : server/products_ui.o
 
@@ -201,6 +273,30 @@ server/products_ui.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/products_ui.cpp.s
 .PHONY : server/products_ui.cpp.s
 
+server/table_numbers_ui.o: server/table_numbers_ui.cpp.o
+.PHONY : server/table_numbers_ui.o
+
+# target to build an object file
+server/table_numbers_ui.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/table_numbers_ui.cpp.o
+.PHONY : server/table_numbers_ui.cpp.o
+
+server/table_numbers_ui.i: server/table_numbers_ui.cpp.i
+.PHONY : server/table_numbers_ui.i
+
+# target to preprocess a source file
+server/table_numbers_ui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/table_numbers_ui.cpp.i
+.PHONY : server/table_numbers_ui.cpp.i
+
+server/table_numbers_ui.s: server/table_numbers_ui.cpp.s
+.PHONY : server/table_numbers_ui.s
+
+# target to generate assembly for a file
+server/table_numbers_ui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/table_numbers_ui.cpp.s
+.PHONY : server/table_numbers_ui.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -216,9 +312,21 @@ help:
 	@echo "... server/app.o"
 	@echo "... server/app.i"
 	@echo "... server/app.s"
+	@echo "... server/order_manager.o"
+	@echo "... server/order_manager.i"
+	@echo "... server/order_manager.s"
+	@echo "... server/orders_ui.o"
+	@echo "... server/orders_ui.i"
+	@echo "... server/orders_ui.s"
+	@echo "... server/product_manager.o"
+	@echo "... server/product_manager.i"
+	@echo "... server/product_manager.s"
 	@echo "... server/products_ui.o"
 	@echo "... server/products_ui.i"
 	@echo "... server/products_ui.s"
+	@echo "... server/table_numbers_ui.o"
+	@echo "... server/table_numbers_ui.i"
+	@echo "... server/table_numbers_ui.s"
 .PHONY : help
 
 

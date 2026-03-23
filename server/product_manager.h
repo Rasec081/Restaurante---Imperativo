@@ -6,13 +6,9 @@
 #define IMPERATIVO_PRODUCT_MANAGER_H
 #include <string>
 #include <vector>
+#include "../shared/models.h"
+
 using namespace std;
-
-
-struct Producto {
-    string nombre;
-    float precio;
-};
 
 class ProductManager {
 
@@ -27,5 +23,7 @@ public:
     void actualizarProducto(string nombre, float precio);
     vector<Producto> getProductos();
     void eliminarProducto(string nombre);
+    bool existeProducto(string nombre);
+    Producto buscarProducto(string nombre);
 };
 #endif //IMPERATIVO_PRODUCT_MANAGER_H

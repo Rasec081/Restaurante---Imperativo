@@ -32,6 +32,14 @@ public:
 
     vector<Orden> getOrders();
 
+    vector<Orden> getPendingOrders();
+
+    bool orderExists(int orderId);
+
+    int getNumberTables();
+
+    void updateNumberTables(int numberTables);
+
 };
 
 #endif
