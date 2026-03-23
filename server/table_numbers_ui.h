@@ -4,4 +4,4 @@
 #include "order_manager.h"
 using namespace std;
 
-void menuGestionarNumeroMesas(OrderManager &om);
+void menuGestionarNumeroMesas();

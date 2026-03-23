@@ -48,14 +48,14 @@ void mostrarOrdenes(const vector<Orden>& ordenes) {
     cout << endl;
 }
 
-void opcionConsultarOrdenesPendientes(OrderManager &om) {
+void opcionConsultarOrdenesPendientes() {
     // - Opcion para consultar ordenes
-    mostrarOrdenes(om.getPendingOrders());
+    mostrarOrdenes(getPendingOrders());
     esperar();
     limpiar();
 }
 
-void opcionConsultarOrdenes(OrderManager &om) {
+void opcionConsultarOrdenes() {
     // - Opcion para consultar ordenes
 
     Orden orden;
@@ -76,15 +76,15 @@ void opcionConsultarOrdenes(OrderManager &om) {
     prodEscogidos2.push_back({"Coca Cola2", 2});
     orden2.productos = prodEscogidos2;
 
-    om.addOrder(orden);
-    om.addOrder(orden2);
+    addOrder(orden);
+    addOrder(orden2);
 
-    mostrarOrdenes(om.getOrders());
+    mostrarOrdenes(getOrders());
     esperar();
     limpiar();
 }
 
-void opcionCompletarOrden(OrderManager &om) {
+void opcionCompletarOrden() {
     // - Opcion para consultar ordenes
     int opcion = 0;
 
@@ -95,7 +95,7 @@ void opcionCompletarOrden(OrderManager &om) {
         cout << "====================================================== =============== ==================================================" << endl;
         cout << "Se le va a mostrar el listado de ordenes incompletas antes de poder completar una orden." << endl;
         esperar();
-        mostrarOrdenes(om.getPendingOrders());
+        mostrarOrdenes(getPendingOrders());
 
         int idOrden;
 
@@ -106,7 +106,7 @@ void opcionCompletarOrden(OrderManager &om) {
 
         esperar();
 
-        if (om.orderExists(idOrden) == false) {
+        if (orderExists(idOrden) == false) {
             cout << "(!) (!) LA ORDEN SELECCIONADA NO EXISTE (!) (!)." << endl;
             cout << "Se redirigirá automáticamente hacia el menú de gestionar. " << endl;
             break;
@@ -123,7 +123,7 @@ void opcionCompletarOrden(OrderManager &om) {
         cin >> opcion;
 
         if (opcion == 3 or opcion == 1) {
-            om.completeOrder(idOrden);
+            completeOrder(idOrden);
         }
     }
 
@@ -131,7 +131,7 @@ void opcionCompletarOrden(OrderManager &om) {
     cout << "====================================================== =============== ==================================================" << endl;
 }
 
-void menuGestionarOrdenes(OrderManager &om) {
+void menuGestionarOrdenes() {
     // - Menu para gestionar las ordenes del restaurante
     int opcion = 0;
 
@@ -152,15 +152,15 @@ void menuGestionarOrdenes(OrderManager &om) {
         switch (opcion) {
             case 1:
                 limpiar();
-                opcionConsultarOrdenes(om);
+                opcionConsultarOrdenes();
                 break;
             case 2:
                 limpiar();
-                opcionConsultarOrdenesPendientes(om);
+                opcionConsultarOrdenesPendientes();
                 break;
             case 3:
                 limpiar();
-                opcionCompletarOrden(om);
+                opcionCompletarOrden();
                 break;
             case 4:
                 limpiar();

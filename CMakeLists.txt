@@ -17,11 +17,14 @@ include_directories(
 add_executable(server_app
         server/server_app.cpp
         server/network_server.cpp
+        server/order_manager.cpp
+        server/product_manager.cpp
+        server/products_ui.cpp
+        server/orders_ui.cpp
+        server/table_numbers_ui.cpp
         server/handlers/order_handler.cpp
         server/handlers/product_handler.cpp
         shared/json_utils.cpp
-        server/order_manager.cpp
-        server/product_manager.cpp
 )
 
 target_link_libraries(server_app nlohmann_json::nlohmann_json)

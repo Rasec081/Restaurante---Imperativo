@@ -216,18 +216,17 @@ void menuCrearOrden() {
     int mesa;
 
     while (opcion == 3) {
-
         cout << "\n====================================================== CREAR ORDEN ======================================================\n";
         cout << endl;
         cout << "1. Número de mesa: " << endl;
         cin >> mesa;
 
-        if (validarMesa(mesa) {
+        if (validarMesa(mesa)) {
             cout << "Mesa inválida.\n";
             esperar();
             return;
         }
-}
+
         cout << "2. Seleccionar productos: " << endl;
         escogerProductos(productosEscogidos);
 

@@ -16,5 +16,5 @@ void insertarProductoEscogido(vector<ProductoEscogido>& productosEscogidos, stri
 vector<json> obtenerOrdenes();
 vector<ProductoEscogido> obtenerDetalleOrden(int id);
 void eliminarProductoEscogido(vector<ProductoEscogido>& productos, string nombre);
-validarMesa(int mesaEscogida);
+bool validarMesa(int mesaEscogida);
 #endif //IMPERATIVO_CLIENT_LOGIC_H

@@ -82,7 +82,7 @@ vector<Orden> getOrders() {
     return orders;
 }
 
-vector<Orden> OrderManager::getPendingOrders() {
+vector<Orden> getPendingOrders() {
     vector<Orden> pendingOrders;
 
     for (int i = 0; i < orders.size(); i++) {
@@ -95,7 +95,7 @@ vector<Orden> OrderManager::getPendingOrders() {
     return pendingOrders;
 }
 
-bool OrderManager::orderExists(int orderId) {
+bool orderExists(int orderId) {
 
     for (int i = 0; i < orders.size(); i++) {
         if (orders[i].id == orderId) {
@@ -107,11 +107,11 @@ bool OrderManager::orderExists(int orderId) {
     return false;
 }
 
-int OrderManager::getNumberTables() {
+int getNumberTables() {
     return totalMesas;
 }
 
-void OrderManager::updateNumberTables(int numberTables) {
+void updateNumberTables(int numberTables) {
     totalMesas = numberTables;
 }
 

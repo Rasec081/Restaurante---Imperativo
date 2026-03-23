@@ -1,3 +1,4 @@
-/home/richm/Imperativo/build/CMakeFiles/Imperativo.dir
-/home/richm/Imperativo/build/CMakeFiles/edit_cache.dir
-/home/richm/Imperativo/build/CMakeFiles/rebuild_cache.dir
+/home/cesar/projects/Project1/build/CMakeFiles/server_app.dir
+/home/cesar/projects/Project1/build/CMakeFiles/client_app.dir
+/home/cesar/projects/Project1/build/CMakeFiles/edit_cache.dir
+/home/cesar/projects/Project1/build/CMakeFiles/rebuild_cache.dir

@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/richm/Imperativo
+CMAKE_SOURCE_DIR = /home/cesar/projects/Project1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/richm/Imperativo/build
+CMAKE_BINARY_DIR = /home/cesar/projects/Project1/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/richm/Imperativo/build/CMakeFiles /home/richm/Imperativo/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cesar/projects/Project1/build/CMakeFiles /home/cesar/projects/Project1/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/richm/Imperativo/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cesar/projects/Project1/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,72 +117,205 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Imperativo
+# Target rules for targets named server_app
 
 # Build rule for target.
-Imperativo: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Imperativo
-.PHONY : Imperativo
+server_app: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server_app
+.PHONY : server_app
 
 # fast build rule for target.
-Imperativo/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/build
-.PHONY : Imperativo/fast
+server_app/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/build
+.PHONY : server_app/fast
 
-main.o: main.cpp.o
-.PHONY : main.o
+#=============================================================================
+# Target rules for targets named client_app
 
-# target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/main.cpp.o
-.PHONY : main.cpp.o
+# Build rule for target.
+client_app: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 client_app
+.PHONY : client_app
 
-main.i: main.cpp.i
-.PHONY : main.i
+# fast build rule for target.
+client_app/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client_app.dir/build.make CMakeFiles/client_app.dir/build
+.PHONY : client_app/fast
 
-# target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/main.cpp.i
-.PHONY : main.cpp.i
-
-main.s: main.cpp.s
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/main.cpp.s
-.PHONY : main.cpp.s
-
-server/app.o: server/app.cpp.o
-.PHONY : server/app.o
+client/client_app.o: client/client_app.cpp.o
+.PHONY : client/client_app.o
 
 # target to build an object file
-server/app.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/app.cpp.o
-.PHONY : server/app.cpp.o
+client/client_app.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client_app.dir/build.make CMakeFiles/client_app.dir/client/client_app.cpp.o
+.PHONY : client/client_app.cpp.o
 
-server/app.i: server/app.cpp.i
-.PHONY : server/app.i
+client/client_app.i: client/client_app.cpp.i
+.PHONY : client/client_app.i
 
 # target to preprocess a source file
-server/app.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/app.cpp.i
-.PHONY : server/app.cpp.i
+client/client_app.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client_app.dir/build.make CMakeFiles/client_app.dir/client/client_app.cpp.i
+.PHONY : client/client_app.cpp.i
 
-server/app.s: server/app.cpp.s
-.PHONY : server/app.s
+client/client_app.s: client/client_app.cpp.s
+.PHONY : client/client_app.s
 
 # target to generate assembly for a file
-server/app.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/app.cpp.s
-.PHONY : server/app.cpp.s
+client/client_app.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client_app.dir/build.make CMakeFiles/client_app.dir/client/client_app.cpp.s
+.PHONY : client/client_app.cpp.s
+
+client/client_logic.o: client/client_logic.cpp.o
+.PHONY : client/client_logic.o
+
+# target to build an object file
+client/client_logic.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client_app.dir/build.make CMakeFiles/client_app.dir/client/client_logic.cpp.o
+.PHONY : client/client_logic.cpp.o
+
+client/client_logic.i: client/client_logic.cpp.i
+.PHONY : client/client_logic.i
+
+# target to preprocess a source file
+client/client_logic.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client_app.dir/build.make CMakeFiles/client_app.dir/client/client_logic.cpp.i
+.PHONY : client/client_logic.cpp.i
+
+client/client_logic.s: client/client_logic.cpp.s
+.PHONY : client/client_logic.s
+
+# target to generate assembly for a file
+client/client_logic.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client_app.dir/build.make CMakeFiles/client_app.dir/client/client_logic.cpp.s
+.PHONY : client/client_logic.cpp.s
+
+client/client_ui.o: client/client_ui.cpp.o
+.PHONY : client/client_ui.o
+
+# target to build an object file
+client/client_ui.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client_app.dir/build.make CMakeFiles/client_app.dir/client/client_ui.cpp.o
+.PHONY : client/client_ui.cpp.o
+
+client/client_ui.i: client/client_ui.cpp.i
+.PHONY : client/client_ui.i
+
+# target to preprocess a source file
+client/client_ui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client_app.dir/build.make CMakeFiles/client_app.dir/client/client_ui.cpp.i
+.PHONY : client/client_ui.cpp.i
+
+client/client_ui.s: client/client_ui.cpp.s
+.PHONY : client/client_ui.s
+
+# target to generate assembly for a file
+client/client_ui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client_app.dir/build.make CMakeFiles/client_app.dir/client/client_ui.cpp.s
+.PHONY : client/client_ui.cpp.s
+
+client/network_client.o: client/network_client.cpp.o
+.PHONY : client/network_client.o
+
+# target to build an object file
+client/network_client.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client_app.dir/build.make CMakeFiles/client_app.dir/client/network_client.cpp.o
+.PHONY : client/network_client.cpp.o
+
+client/network_client.i: client/network_client.cpp.i
+.PHONY : client/network_client.i
+
+# target to preprocess a source file
+client/network_client.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client_app.dir/build.make CMakeFiles/client_app.dir/client/network_client.cpp.i
+.PHONY : client/network_client.cpp.i
+
+client/network_client.s: client/network_client.cpp.s
+.PHONY : client/network_client.s
+
+# target to generate assembly for a file
+client/network_client.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client_app.dir/build.make CMakeFiles/client_app.dir/client/network_client.cpp.s
+.PHONY : client/network_client.cpp.s
+
+server/handlers/order_handler.o: server/handlers/order_handler.cpp.o
+.PHONY : server/handlers/order_handler.o
+
+# target to build an object file
+server/handlers/order_handler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/handlers/order_handler.cpp.o
+.PHONY : server/handlers/order_handler.cpp.o
+
+server/handlers/order_handler.i: server/handlers/order_handler.cpp.i
+.PHONY : server/handlers/order_handler.i
+
+# target to preprocess a source file
+server/handlers/order_handler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/handlers/order_handler.cpp.i
+.PHONY : server/handlers/order_handler.cpp.i
+
+server/handlers/order_handler.s: server/handlers/order_handler.cpp.s
+.PHONY : server/handlers/order_handler.s
+
+# target to generate assembly for a file
+server/handlers/order_handler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/handlers/order_handler.cpp.s
+.PHONY : server/handlers/order_handler.cpp.s
+
+server/handlers/product_handler.o: server/handlers/product_handler.cpp.o
+.PHONY : server/handlers/product_handler.o
+
+# target to build an object file
+server/handlers/product_handler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/handlers/product_handler.cpp.o
+.PHONY : server/handlers/product_handler.cpp.o
+
+server/handlers/product_handler.i: server/handlers/product_handler.cpp.i
+.PHONY : server/handlers/product_handler.i
+
+# target to preprocess a source file
+server/handlers/product_handler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/handlers/product_handler.cpp.i
+.PHONY : server/handlers/product_handler.cpp.i
+
+server/handlers/product_handler.s: server/handlers/product_handler.cpp.s
+.PHONY : server/handlers/product_handler.s
+
+# target to generate assembly for a file
+server/handlers/product_handler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/handlers/product_handler.cpp.s
+.PHONY : server/handlers/product_handler.cpp.s
+
+server/network_server.o: server/network_server.cpp.o
+.PHONY : server/network_server.o
+
+# target to build an object file
+server/network_server.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/network_server.cpp.o
+.PHONY : server/network_server.cpp.o
+
+server/network_server.i: server/network_server.cpp.i
+.PHONY : server/network_server.i
+
+# target to preprocess a source file
+server/network_server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/network_server.cpp.i
+.PHONY : server/network_server.cpp.i
+
+server/network_server.s: server/network_server.cpp.s
+.PHONY : server/network_server.s
+
+# target to generate assembly for a file
+server/network_server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/network_server.cpp.s
+.PHONY : server/network_server.cpp.s
 
 server/order_manager.o: server/order_manager.cpp.o
 .PHONY : server/order_manager.o
 
 # target to build an object file
 server/order_manager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/order_manager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/order_manager.cpp.o
 .PHONY : server/order_manager.cpp.o
 
 server/order_manager.i: server/order_manager.cpp.i
@@ -190,7 +323,7 @@ server/order_manager.i: server/order_manager.cpp.i
 
 # target to preprocess a source file
 server/order_manager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/order_manager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/order_manager.cpp.i
 .PHONY : server/order_manager.cpp.i
 
 server/order_manager.s: server/order_manager.cpp.s
@@ -198,7 +331,7 @@ server/order_manager.s: server/order_manager.cpp.s
 
 # target to generate assembly for a file
 server/order_manager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/order_manager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/order_manager.cpp.s
 .PHONY : server/order_manager.cpp.s
 
 server/orders_ui.o: server/orders_ui.cpp.o
@@ -206,7 +339,7 @@ server/orders_ui.o: server/orders_ui.cpp.o
 
 # target to build an object file
 server/orders_ui.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/orders_ui.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/orders_ui.cpp.o
 .PHONY : server/orders_ui.cpp.o
 
 server/orders_ui.i: server/orders_ui.cpp.i
@@ -214,7 +347,7 @@ server/orders_ui.i: server/orders_ui.cpp.i
 
 # target to preprocess a source file
 server/orders_ui.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/orders_ui.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/orders_ui.cpp.i
 .PHONY : server/orders_ui.cpp.i
 
 server/orders_ui.s: server/orders_ui.cpp.s
@@ -222,7 +355,7 @@ server/orders_ui.s: server/orders_ui.cpp.s
 
 # target to generate assembly for a file
 server/orders_ui.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/orders_ui.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/orders_ui.cpp.s
 .PHONY : server/orders_ui.cpp.s
 
 server/product_manager.o: server/product_manager.cpp.o
@@ -230,7 +363,7 @@ server/product_manager.o: server/product_manager.cpp.o
 
 # target to build an object file
 server/product_manager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/product_manager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/product_manager.cpp.o
 .PHONY : server/product_manager.cpp.o
 
 server/product_manager.i: server/product_manager.cpp.i
@@ -238,7 +371,7 @@ server/product_manager.i: server/product_manager.cpp.i
 
 # target to preprocess a source file
 server/product_manager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/product_manager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/product_manager.cpp.i
 .PHONY : server/product_manager.cpp.i
 
 server/product_manager.s: server/product_manager.cpp.s
@@ -246,7 +379,7 @@ server/product_manager.s: server/product_manager.cpp.s
 
 # target to generate assembly for a file
 server/product_manager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/product_manager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/product_manager.cpp.s
 .PHONY : server/product_manager.cpp.s
 
 server/products_ui.o: server/products_ui.cpp.o
@@ -254,7 +387,7 @@ server/products_ui.o: server/products_ui.cpp.o
 
 # target to build an object file
 server/products_ui.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/products_ui.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/products_ui.cpp.o
 .PHONY : server/products_ui.cpp.o
 
 server/products_ui.i: server/products_ui.cpp.i
@@ -262,7 +395,7 @@ server/products_ui.i: server/products_ui.cpp.i
 
 # target to preprocess a source file
 server/products_ui.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/products_ui.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/products_ui.cpp.i
 .PHONY : server/products_ui.cpp.i
 
 server/products_ui.s: server/products_ui.cpp.s
@@ -270,15 +403,39 @@ server/products_ui.s: server/products_ui.cpp.s
 
 # target to generate assembly for a file
 server/products_ui.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/products_ui.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/products_ui.cpp.s
 .PHONY : server/products_ui.cpp.s
+
+server/server_app.o: server/server_app.cpp.o
+.PHONY : server/server_app.o
+
+# target to build an object file
+server/server_app.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/server_app.cpp.o
+.PHONY : server/server_app.cpp.o
+
+server/server_app.i: server/server_app.cpp.i
+.PHONY : server/server_app.i
+
+# target to preprocess a source file
+server/server_app.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/server_app.cpp.i
+.PHONY : server/server_app.cpp.i
+
+server/server_app.s: server/server_app.cpp.s
+.PHONY : server/server_app.s
+
+# target to generate assembly for a file
+server/server_app.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/server_app.cpp.s
+.PHONY : server/server_app.cpp.s
 
 server/table_numbers_ui.o: server/table_numbers_ui.cpp.o
 .PHONY : server/table_numbers_ui.o
 
 # target to build an object file
 server/table_numbers_ui.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/table_numbers_ui.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/table_numbers_ui.cpp.o
 .PHONY : server/table_numbers_ui.cpp.o
 
 server/table_numbers_ui.i: server/table_numbers_ui.cpp.i
@@ -286,7 +443,7 @@ server/table_numbers_ui.i: server/table_numbers_ui.cpp.i
 
 # target to preprocess a source file
 server/table_numbers_ui.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/table_numbers_ui.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/table_numbers_ui.cpp.i
 .PHONY : server/table_numbers_ui.cpp.i
 
 server/table_numbers_ui.s: server/table_numbers_ui.cpp.s
@@ -294,8 +451,32 @@ server/table_numbers_ui.s: server/table_numbers_ui.cpp.s
 
 # target to generate assembly for a file
 server/table_numbers_ui.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Imperativo.dir/build.make CMakeFiles/Imperativo.dir/server/table_numbers_ui.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/server/table_numbers_ui.cpp.s
 .PHONY : server/table_numbers_ui.cpp.s
+
+shared/json_utils.o: shared/json_utils.cpp.o
+.PHONY : shared/json_utils.o
+
+# target to build an object file
+shared/json_utils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/shared/json_utils.cpp.o
+.PHONY : shared/json_utils.cpp.o
+
+shared/json_utils.i: shared/json_utils.cpp.i
+.PHONY : shared/json_utils.i
+
+# target to preprocess a source file
+shared/json_utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/shared/json_utils.cpp.i
+.PHONY : shared/json_utils.cpp.i
+
+shared/json_utils.s: shared/json_utils.cpp.s
+.PHONY : shared/json_utils.s
+
+# target to generate assembly for a file
+shared/json_utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server_app.dir/build.make CMakeFiles/server_app.dir/shared/json_utils.cpp.s
+.PHONY : shared/json_utils.cpp.s
 
 # Help Target
 help:
@@ -305,13 +486,29 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... Imperativo"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
-	@echo "... server/app.o"
-	@echo "... server/app.i"
-	@echo "... server/app.s"
+	@echo "... client_app"
+	@echo "... server_app"
+	@echo "... client/client_app.o"
+	@echo "... client/client_app.i"
+	@echo "... client/client_app.s"
+	@echo "... client/client_logic.o"
+	@echo "... client/client_logic.i"
+	@echo "... client/client_logic.s"
+	@echo "... client/client_ui.o"
+	@echo "... client/client_ui.i"
+	@echo "... client/client_ui.s"
+	@echo "... client/network_client.o"
+	@echo "... client/network_client.i"
+	@echo "... client/network_client.s"
+	@echo "... server/handlers/order_handler.o"
+	@echo "... server/handlers/order_handler.i"
+	@echo "... server/handlers/order_handler.s"
+	@echo "... server/handlers/product_handler.o"
+	@echo "... server/handlers/product_handler.i"
+	@echo "... server/handlers/product_handler.s"
+	@echo "... server/network_server.o"
+	@echo "... server/network_server.i"
+	@echo "... server/network_server.s"
 	@echo "... server/order_manager.o"
 	@echo "... server/order_manager.i"
 	@echo "... server/order_manager.s"
@@ -324,9 +521,15 @@ help:
 	@echo "... server/products_ui.o"
 	@echo "... server/products_ui.i"
 	@echo "... server/products_ui.s"
+	@echo "... server/server_app.o"
+	@echo "... server/server_app.i"
+	@echo "... server/server_app.s"
 	@echo "... server/table_numbers_ui.o"
 	@echo "... server/table_numbers_ui.i"
 	@echo "... server/table_numbers_ui.s"
+	@echo "... shared/json_utils.o"
+	@echo "... shared/json_utils.i"
+	@echo "... shared/json_utils.s"
 .PHONY : help
 
 

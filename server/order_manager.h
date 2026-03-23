@@ -33,14 +33,13 @@ vector<Orden> getOrders();
 int getTotalMesas();
 
 Orden getOrderById(int id);
-    vector<Orden> getPendingOrders();
 
-    bool orderExists(int orderId);
+vector<Orden> getPendingOrders();
 
-    int getNumberTables();
+bool orderExists(int orderId);
 
-    void updateNumberTables(int numberTables);
+int getNumberTables();
 
-};
+void updateNumberTables(int numberTables);
 
 #endif

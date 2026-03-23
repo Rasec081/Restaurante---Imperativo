@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/home/cesar/projects/Project1/server -I/home/cesar/projects/Project1/client -I/home/cesar/projects/Project1/shared
 
 CXX_FLAGS = -std=gnu++20
 

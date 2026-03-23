@@ -59,7 +59,7 @@ void eliminarProducto(string nombre) {
     }
 }
 
-bool ProductManager::existeProducto(string nombre) {
+bool existeProducto(string nombre) {
     for (int i = 0; i < listaProductos.size(); i++) {
         if (listaProductos[i].nombre == nombre) {
             return true;
@@ -69,7 +69,7 @@ bool ProductManager::existeProducto(string nombre) {
     return false;
 }
 
-Producto ProductManager::buscarProducto(string nombre) {
+Producto buscarProducto(string nombre) {
     for (int i = 0; i < listaProductos.size(); i++) {
         if (listaProductos[i].nombre == nombre) {
             return listaProductos[i];

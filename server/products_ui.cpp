@@ -50,14 +50,13 @@ void mostrarProductos(const vector<Producto>& productos) {
     cout << endl;
 }
 
-void opcionAgregarProductos(ProductManager &pm) {
-    // -Menu para agregar productos
+void opcionAgregarProductos() {
     int opcion = 0;
     Producto p;
 
-    while (opcion != 1 and opcion != 2) {
-        // 1. Obtener los productos
-        vector<Producto> productos = pm.getProductos();
+    while (opcion != 1 && opcion != 2) {
+
+        vector<Producto> productos = getProductos();
         limpiar();
 
         cout << "\n==================================================== AGREGAR PRODUCTO =================================================" << endl;
@@ -76,13 +75,14 @@ void opcionAgregarProductos(ProductManager &pm) {
         cout << "2. Precio del producto: ";
         cin >> precio;
         cout << endl;
+
         p.nombre = nombreProducto;
         p.precio = precio;
 
         mostrarProducto(p);
         esperar();
 
-        if (pm.existeProducto(nombreProducto)) {
+        if (existeProducto(nombreProducto)) {
             cout << "(!) (!) ESTE PRODUCTO YA EXISTE (!) (!)." << endl;
             cout << "Se redirigirá automáticamente hacia el menú de gestionar. " << endl;
             break;
@@ -99,31 +99,26 @@ void opcionAgregarProductos(ProductManager &pm) {
         cin >> opcion;
 
         if (opcion == 3) {
-            pm.crearProducto(p.nombre, p.precio);
+            crearProducto(p.nombre, p.precio);
         }
     }
 
     if (opcion == 1) {
-        pm.crearProducto(p.nombre, p.precio);
+        crearProducto(p.nombre, p.precio);
     }
 
     cout << endl;
     cout << "====================================================== =============== ==================================================" << endl;
 }
 
-void opcionConsultarProductos(ProductManager &pm) {
-    // - Opcion Consultar Productos
-
-    vector<Producto> productos = pm.getProductos();
+void opcionConsultarProductos() {
+    vector<Producto> productos = getProductos();
     mostrarProductos(productos);
     esperar();
     limpiar();
 }
 
-
 bool menuNoExisteProducto() {
-    // - Menu en los casos cuando no existe el producto
-    // - Se envia false si desea salir, true si quiere seguir
     int opcionError = 0;
 
     while (opcionError != 2) {
@@ -147,17 +142,17 @@ bool menuNoExisteProducto() {
         }
     }
 
-
+    return false;
 }
 
-void opcionActualizarProductos(ProductManager &pm) {
-    // - Opcion de menu para actualizar productos
+void opcionActualizarProductos() {
     int opcion = 0;
-    Producto p;
+    string nombreGuardado;
+    float precioGuardado;
 
-    while (opcion != 1 and opcion != 2) {
-        // 1. Obtener los productos
-        vector<Producto> productos = pm.getProductos();
+    while (opcion != 1 && opcion != 2) {
+
+        vector<Producto> productos = getProductos();
         limpiar();
 
         cout << "\n==================================================== ACTUALIZAR PRODUCTO =================================================" << endl;
@@ -166,27 +161,26 @@ void opcionActualizarProductos(ProductManager &pm) {
         esperar();
         mostrarProductos(productos);
 
-        // Indicarle al usuario que seleccione un nombre existente
         string nombreProducto;
         float precio;
+
         cout << "1. Indique el nombre de un producto para actualizarlo:";
         cin >> nombreProducto;
 
-        // si el producto existe, mostrar menu de que se equivoco y si desea volver a intentarlo o salirse
-        if (pm.existeProducto(nombreProducto) == false) {
+        if (existeProducto(nombreProducto) == false) {
             if (menuNoExisteProducto() == false) {
                 break;
             }
-        }else {
-            Producto productoEncontrado = pm.buscarProducto(nombreProducto);
+        } else {
+            Producto productoEncontrado = buscarProducto(nombreProducto);
             mostrarProducto(productoEncontrado);
             esperar();
+
             cout << " 2. Indique el precio del producto a actualizar: ";
             cin >> precio;
 
-            // se guardan los datos obtenidos en el producto struct
-            p.nombre = nombreProducto;
-            p.precio = precio;
+            nombreGuardado = nombreProducto;
+            precioGuardado = precio;
 
             cout << "====================================================== =============== ==================================================" << endl;
             cout << "(?) Qué desea hacer con el producto actualizado?" << endl;
@@ -199,14 +193,14 @@ void opcionActualizarProductos(ProductManager &pm) {
             cin >> opcion;
 
             if (opcion == 3) {
-                pm.actualizarProducto(p.nombre, p.precio);
+                actualizarProducto(nombreGuardado, precioGuardado);
                 cout << " (!) (!) Actualización exitosa! " << endl;
             }
         }
     }
 
     if (opcion == 1) {
-        pm.actualizarProducto(p.nombre, p.precio);
+        actualizarProducto(nombreGuardado, precioGuardado);
         cout << " (!) (!) Actualización exitosa! " << endl;
     }
 
@@ -214,15 +208,13 @@ void opcionActualizarProductos(ProductManager &pm) {
     cout << "====================================================== =============== ==================================================" << endl;
 }
 
-void opcionEliminarProducto(ProductManager &pm) {
-    // - Opcion eliminar producto
-
+void opcionEliminarProducto() {
     int opcion = 0;
-    Producto p;
+    string nombreGuardado;
 
-    while (opcion != 1 and opcion != 2) {
-        // 1. Obtener los productos
-        vector<Producto> productos = pm.getProductos();
+    while (opcion != 1 && opcion != 2) {
+
+        vector<Producto> productos = getProductos();
         limpiar();
 
         cout << "\n==================================================== ELIMINAR PRODUCTO =================================================" << endl;
@@ -231,22 +223,20 @@ void opcionEliminarProducto(ProductManager &pm) {
         esperar();
         mostrarProductos(productos);
 
-        // Indicarle al usuario que seleccione un nombre existente
         string nombreProducto;
-        float precio;
         cout << "1. Indique el nombre de un producto para eliminarlo:";
         cin >> nombreProducto;
-        p.nombre = nombreProducto;
 
-        // si el producto existe, mostrar menu de que se equivoco y si desea volver a intentarlo o salirse
-        if (pm.existeProducto(nombreProducto) == false) {
+        if (existeProducto(nombreProducto) == false) {
             if (menuNoExisteProducto() == false) {
                 break;
             }
-        }else {
-            Producto productoEncontrado = pm.buscarProducto(nombreProducto);
+        } else {
+            Producto productoEncontrado = buscarProducto(nombreProducto);
             mostrarProducto(productoEncontrado);
             esperar();
+
+            nombreGuardado = nombreProducto;
 
             cout << "====================================================== =============== ==================================================" << endl;
             cout << "(?) Qué desea hacer con el producto que desea eliminar?" << endl;
@@ -259,14 +249,14 @@ void opcionEliminarProducto(ProductManager &pm) {
             cin >> opcion;
 
             if (opcion == 3) {
-                pm.eliminarProducto(nombreProducto);
+                eliminarProducto(nombreGuardado);
                 cout << " (!) (!) Eliminación exitosa! " << endl;
             }
         }
     }
 
     if (opcion == 1) {
-        pm.eliminarProducto(p.nombre);
+        eliminarProducto(nombreGuardado);
         cout << " (!) (!) Eliminación exitosa! " << endl;
     }
 
@@ -274,8 +264,7 @@ void opcionEliminarProducto(ProductManager &pm) {
     cout << "====================================================== =============== ==================================================" << endl;
 }
 
-void menuGestionarProductos(ProductManager &pm) {
-    // - Menu para gestionar los productos del restaurante
+void menuGestionarProductos() {
     int opcion = 0;
 
     while (opcion != 5) {
@@ -296,19 +285,19 @@ void menuGestionarProductos(ProductManager &pm) {
         switch (opcion) {
             case 1:
                 limpiar();
-                opcionAgregarProductos(pm);
+                opcionAgregarProductos();
                 break;
             case 2:
                 limpiar();
-                opcionConsultarProductos(pm);
+                opcionConsultarProductos();
                 break;
             case 3:
                 limpiar();
-                opcionActualizarProductos(pm);
+                opcionActualizarProductos();
                 break;
             case 4:
                 limpiar();
-                opcionEliminarProducto(pm);
+                opcionEliminarProducto();
                 break;
             default:
                 cout << "Opcion invalida\n";
@@ -316,4 +305,3 @@ void menuGestionarProductos(ProductManager &pm) {
         }
     }
 }
-

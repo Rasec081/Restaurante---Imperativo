@@ -4,17 +4,17 @@
 
 using namespace std;
 
-void opcionConsultarNumeroMesa(OrderManager &om) {
+void opcionConsultarNumeroMesa() {
 
     cout << "\n===================================================== NÚMERO DE MESA ==================================================" << endl;
     cout << "====================================================== =============== ==================================================" << endl;
-    cout << om.getNumberTables();
+    cout << getNumberTables();
     cout << endl;
     cout << "====================================================== =============== ==================================================" << endl;
     esperar();
 }
 
-void opcionActualizarNumeroMesas(OrderManager &om) {
+void opcionActualizarNumeroMesas() {
 
     // - Opcion para consultar ordenes
     int opcion = 0;
@@ -26,7 +26,7 @@ void opcionActualizarNumeroMesas(OrderManager &om) {
         cout << "====================================================== =============== ==================================================" << endl;
         cout << "Se le va a mostrar el listado de número de mesas antes de poder actualizar el valor." << endl;
         esperar();
-        opcionConsultarNumeroMesa(om);
+        opcionConsultarNumeroMesa();
 
         int numeroMesas;
 
@@ -45,7 +45,7 @@ void opcionActualizarNumeroMesas(OrderManager &om) {
         cin >> opcion;
 
         if (opcion == 1) {
-            om.updateNumberTables(numeroMesas);
+            updateNumberTables(numeroMesas);
         }
     }
 
@@ -54,7 +54,7 @@ void opcionActualizarNumeroMesas(OrderManager &om) {
 
 }
 
-void menuGestionarNumeroMesas(OrderManager &om) {
+void menuGestionarNumeroMesas() {
     // - Menu para gestionar el numero de mesas
 
     int opcion = 0;
@@ -75,11 +75,11 @@ void menuGestionarNumeroMesas(OrderManager &om) {
         switch (opcion) {
             case 1:
                 limpiar();
-                opcionActualizarNumeroMesas(om);
+                opcionActualizarNumeroMesas();
                 break;
             case 2:
                 limpiar();
-                opcionConsultarNumeroMesa(om);
+                opcionConsultarNumeroMesa();
                 break;
             case 3:
                 limpiar();

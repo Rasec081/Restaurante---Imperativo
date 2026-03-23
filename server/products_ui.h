@@ -8,6 +8,6 @@ void esperar();
 void limpiar();
 void mostrarProducto(Producto producto);
 void mostrarProductos(const vector<Producto>& productos);
-void opcionAgregarProductos(ProductManager &pm);
-void menuGestionarProductos(ProductManager &pm);
+void opcionAgregarProductos();
+void menuGestionarProductos();
 bool menuNoExisteProducto();
