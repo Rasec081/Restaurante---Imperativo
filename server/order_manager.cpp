@@ -82,6 +82,39 @@ vector<Orden> getOrders() {
     return orders;
 }
 
+vector<Orden> OrderManager::getPendingOrders() {
+    vector<Orden> pendingOrders;
+
+    for (int i = 0; i < orders.size(); i++) {
+        if (orders[i].estado == false) {
+
+            pendingOrders.push_back(orders[i]);
+        }
+    }
+
+    return pendingOrders;
+}
+
+bool OrderManager::orderExists(int orderId) {
+
+    for (int i = 0; i < orders.size(); i++) {
+        if (orders[i].id == orderId) {
+
+            return true;
+        }
+    }
+
+    return false;
+}
+
+int OrderManager::getNumberTables() {
+    return totalMesas;
+}
+
+void OrderManager::updateNumberTables(int numberTables) {
+    totalMesas = numberTables;
+}
+
 int getTotalMesas() {
     return totalMesas;
 }

@@ -83,24 +83,10 @@ CMakeFiles/Imperativo.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Imperativo.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/richm/Imperativo/main.cpp -o CMakeFiles/Imperativo.dir/main.cpp.s
 
-CMakeFiles/Imperativo.dir/server/app.cpp.o: CMakeFiles/Imperativo.dir/flags.make
-CMakeFiles/Imperativo.dir/server/app.cpp.o: /home/richm/Imperativo/server/app.cpp
-CMakeFiles/Imperativo.dir/server/app.cpp.o: CMakeFiles/Imperativo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/richm/Imperativo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Imperativo.dir/server/app.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Imperativo.dir/server/app.cpp.o -MF CMakeFiles/Imperativo.dir/server/app.cpp.o.d -o CMakeFiles/Imperativo.dir/server/app.cpp.o -c /home/richm/Imperativo/server/app.cpp
-
-CMakeFiles/Imperativo.dir/server/app.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Imperativo.dir/server/app.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/richm/Imperativo/server/app.cpp > CMakeFiles/Imperativo.dir/server/app.cpp.i
-
-CMakeFiles/Imperativo.dir/server/app.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Imperativo.dir/server/app.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/richm/Imperativo/server/app.cpp -o CMakeFiles/Imperativo.dir/server/app.cpp.s
-
 CMakeFiles/Imperativo.dir/server/products_ui.cpp.o: CMakeFiles/Imperativo.dir/flags.make
 CMakeFiles/Imperativo.dir/server/products_ui.cpp.o: /home/richm/Imperativo/server/products_ui.cpp
 CMakeFiles/Imperativo.dir/server/products_ui.cpp.o: CMakeFiles/Imperativo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/richm/Imperativo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Imperativo.dir/server/products_ui.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/richm/Imperativo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Imperativo.dir/server/products_ui.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Imperativo.dir/server/products_ui.cpp.o -MF CMakeFiles/Imperativo.dir/server/products_ui.cpp.o.d -o CMakeFiles/Imperativo.dir/server/products_ui.cpp.o -c /home/richm/Imperativo/server/products_ui.cpp
 
 CMakeFiles/Imperativo.dir/server/products_ui.cpp.i: cmake_force
@@ -111,21 +97,99 @@ CMakeFiles/Imperativo.dir/server/products_ui.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Imperativo.dir/server/products_ui.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/richm/Imperativo/server/products_ui.cpp -o CMakeFiles/Imperativo.dir/server/products_ui.cpp.s
 
+CMakeFiles/Imperativo.dir/server/app.cpp.o: CMakeFiles/Imperativo.dir/flags.make
+CMakeFiles/Imperativo.dir/server/app.cpp.o: /home/richm/Imperativo/server/app.cpp
+CMakeFiles/Imperativo.dir/server/app.cpp.o: CMakeFiles/Imperativo.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/richm/Imperativo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Imperativo.dir/server/app.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Imperativo.dir/server/app.cpp.o -MF CMakeFiles/Imperativo.dir/server/app.cpp.o.d -o CMakeFiles/Imperativo.dir/server/app.cpp.o -c /home/richm/Imperativo/server/app.cpp
+
+CMakeFiles/Imperativo.dir/server/app.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Imperativo.dir/server/app.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/richm/Imperativo/server/app.cpp > CMakeFiles/Imperativo.dir/server/app.cpp.i
+
+CMakeFiles/Imperativo.dir/server/app.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Imperativo.dir/server/app.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/richm/Imperativo/server/app.cpp -o CMakeFiles/Imperativo.dir/server/app.cpp.s
+
+CMakeFiles/Imperativo.dir/server/order_manager.cpp.o: CMakeFiles/Imperativo.dir/flags.make
+CMakeFiles/Imperativo.dir/server/order_manager.cpp.o: /home/richm/Imperativo/server/order_manager.cpp
+CMakeFiles/Imperativo.dir/server/order_manager.cpp.o: CMakeFiles/Imperativo.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/richm/Imperativo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Imperativo.dir/server/order_manager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Imperativo.dir/server/order_manager.cpp.o -MF CMakeFiles/Imperativo.dir/server/order_manager.cpp.o.d -o CMakeFiles/Imperativo.dir/server/order_manager.cpp.o -c /home/richm/Imperativo/server/order_manager.cpp
+
+CMakeFiles/Imperativo.dir/server/order_manager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Imperativo.dir/server/order_manager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/richm/Imperativo/server/order_manager.cpp > CMakeFiles/Imperativo.dir/server/order_manager.cpp.i
+
+CMakeFiles/Imperativo.dir/server/order_manager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Imperativo.dir/server/order_manager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/richm/Imperativo/server/order_manager.cpp -o CMakeFiles/Imperativo.dir/server/order_manager.cpp.s
+
+CMakeFiles/Imperativo.dir/server/product_manager.cpp.o: CMakeFiles/Imperativo.dir/flags.make
+CMakeFiles/Imperativo.dir/server/product_manager.cpp.o: /home/richm/Imperativo/server/product_manager.cpp
+CMakeFiles/Imperativo.dir/server/product_manager.cpp.o: CMakeFiles/Imperativo.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/richm/Imperativo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Imperativo.dir/server/product_manager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Imperativo.dir/server/product_manager.cpp.o -MF CMakeFiles/Imperativo.dir/server/product_manager.cpp.o.d -o CMakeFiles/Imperativo.dir/server/product_manager.cpp.o -c /home/richm/Imperativo/server/product_manager.cpp
+
+CMakeFiles/Imperativo.dir/server/product_manager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Imperativo.dir/server/product_manager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/richm/Imperativo/server/product_manager.cpp > CMakeFiles/Imperativo.dir/server/product_manager.cpp.i
+
+CMakeFiles/Imperativo.dir/server/product_manager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Imperativo.dir/server/product_manager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/richm/Imperativo/server/product_manager.cpp -o CMakeFiles/Imperativo.dir/server/product_manager.cpp.s
+
+CMakeFiles/Imperativo.dir/server/orders_ui.cpp.o: CMakeFiles/Imperativo.dir/flags.make
+CMakeFiles/Imperativo.dir/server/orders_ui.cpp.o: /home/richm/Imperativo/server/orders_ui.cpp
+CMakeFiles/Imperativo.dir/server/orders_ui.cpp.o: CMakeFiles/Imperativo.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/richm/Imperativo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Imperativo.dir/server/orders_ui.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Imperativo.dir/server/orders_ui.cpp.o -MF CMakeFiles/Imperativo.dir/server/orders_ui.cpp.o.d -o CMakeFiles/Imperativo.dir/server/orders_ui.cpp.o -c /home/richm/Imperativo/server/orders_ui.cpp
+
+CMakeFiles/Imperativo.dir/server/orders_ui.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Imperativo.dir/server/orders_ui.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/richm/Imperativo/server/orders_ui.cpp > CMakeFiles/Imperativo.dir/server/orders_ui.cpp.i
+
+CMakeFiles/Imperativo.dir/server/orders_ui.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Imperativo.dir/server/orders_ui.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/richm/Imperativo/server/orders_ui.cpp -o CMakeFiles/Imperativo.dir/server/orders_ui.cpp.s
+
+CMakeFiles/Imperativo.dir/server/table_numbers_ui.cpp.o: CMakeFiles/Imperativo.dir/flags.make
+CMakeFiles/Imperativo.dir/server/table_numbers_ui.cpp.o: /home/richm/Imperativo/server/table_numbers_ui.cpp
+CMakeFiles/Imperativo.dir/server/table_numbers_ui.cpp.o: CMakeFiles/Imperativo.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/richm/Imperativo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Imperativo.dir/server/table_numbers_ui.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Imperativo.dir/server/table_numbers_ui.cpp.o -MF CMakeFiles/Imperativo.dir/server/table_numbers_ui.cpp.o.d -o CMakeFiles/Imperativo.dir/server/table_numbers_ui.cpp.o -c /home/richm/Imperativo/server/table_numbers_ui.cpp
+
+CMakeFiles/Imperativo.dir/server/table_numbers_ui.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Imperativo.dir/server/table_numbers_ui.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/richm/Imperativo/server/table_numbers_ui.cpp > CMakeFiles/Imperativo.dir/server/table_numbers_ui.cpp.i
+
+CMakeFiles/Imperativo.dir/server/table_numbers_ui.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Imperativo.dir/server/table_numbers_ui.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/richm/Imperativo/server/table_numbers_ui.cpp -o CMakeFiles/Imperativo.dir/server/table_numbers_ui.cpp.s
+
 # Object files for target Imperativo
 Imperativo_OBJECTS = \
 "CMakeFiles/Imperativo.dir/main.cpp.o" \
+"CMakeFiles/Imperativo.dir/server/products_ui.cpp.o" \
 "CMakeFiles/Imperativo.dir/server/app.cpp.o" \
-"CMakeFiles/Imperativo.dir/server/products_ui.cpp.o"
+"CMakeFiles/Imperativo.dir/server/order_manager.cpp.o" \
+"CMakeFiles/Imperativo.dir/server/product_manager.cpp.o" \
+"CMakeFiles/Imperativo.dir/server/orders_ui.cpp.o" \
+"CMakeFiles/Imperativo.dir/server/table_numbers_ui.cpp.o"
 
 # External object files for target Imperativo
 Imperativo_EXTERNAL_OBJECTS =
 
 Imperativo: CMakeFiles/Imperativo.dir/main.cpp.o
-Imperativo: CMakeFiles/Imperativo.dir/server/app.cpp.o
 Imperativo: CMakeFiles/Imperativo.dir/server/products_ui.cpp.o
+Imperativo: CMakeFiles/Imperativo.dir/server/app.cpp.o
+Imperativo: CMakeFiles/Imperativo.dir/server/order_manager.cpp.o
+Imperativo: CMakeFiles/Imperativo.dir/server/product_manager.cpp.o
+Imperativo: CMakeFiles/Imperativo.dir/server/orders_ui.cpp.o
+Imperativo: CMakeFiles/Imperativo.dir/server/table_numbers_ui.cpp.o
 Imperativo: CMakeFiles/Imperativo.dir/build.make
 Imperativo: CMakeFiles/Imperativo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/richm/Imperativo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Imperativo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/richm/Imperativo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Imperativo"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Imperativo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

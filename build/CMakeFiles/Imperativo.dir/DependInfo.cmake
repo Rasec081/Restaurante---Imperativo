@@ -10,7 +10,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/richm/Imperativo/main.cpp" "CMakeFiles/Imperativo.dir/main.cpp.o" "gcc" "CMakeFiles/Imperativo.dir/main.cpp.o.d"
   "/home/richm/Imperativo/server/app.cpp" "CMakeFiles/Imperativo.dir/server/app.cpp.o" "gcc" "CMakeFiles/Imperativo.dir/server/app.cpp.o.d"
+  "/home/richm/Imperativo/server/order_manager.cpp" "CMakeFiles/Imperativo.dir/server/order_manager.cpp.o" "gcc" "CMakeFiles/Imperativo.dir/server/order_manager.cpp.o.d"
+  "/home/richm/Imperativo/server/orders_ui.cpp" "CMakeFiles/Imperativo.dir/server/orders_ui.cpp.o" "gcc" "CMakeFiles/Imperativo.dir/server/orders_ui.cpp.o.d"
+  "/home/richm/Imperativo/server/product_manager.cpp" "CMakeFiles/Imperativo.dir/server/product_manager.cpp.o" "gcc" "CMakeFiles/Imperativo.dir/server/product_manager.cpp.o.d"
   "/home/richm/Imperativo/server/products_ui.cpp" "CMakeFiles/Imperativo.dir/server/products_ui.cpp.o" "gcc" "CMakeFiles/Imperativo.dir/server/products_ui.cpp.o.d"
+  "/home/richm/Imperativo/server/table_numbers_ui.cpp" "CMakeFiles/Imperativo.dir/server/table_numbers_ui.cpp.o" "gcc" "CMakeFiles/Imperativo.dir/server/table_numbers_ui.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

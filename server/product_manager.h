@@ -4,10 +4,10 @@
 
 #ifndef IMPERATIVO_PRODUCT_MANAGER_H
 #define IMPERATIVO_PRODUCT_MANAGER_H
-
-#include "../shared/models.h"
 #include <string>
 #include <vector>
+#include "../shared/models.h"
+
 using namespace std;
 
 extern vector<Producto> listaProductos;
@@ -17,6 +17,8 @@ void actualizarProducto(string nombre, string nuevoNombre);
 void actualizarProducto(string nombre, float precio);
 vector<Producto> getProductos();
 void eliminarProducto(string nombre);
+bool existeProducto(string nombre);
+Producto buscarProducto(string nombre);
 void addProducts();
 
 #endif //IMPERATIVO_PRODUCT_MANAGER_H
