@@ -4,6 +4,7 @@
 
 #ifndef IMPERATIVO_PRODUCT_MANAGER_H
 #define IMPERATIVO_PRODUCT_MANAGER_H
+
 #include "../shared/models.h"
 #include <string>
 #include <vector>

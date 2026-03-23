@@ -5,7 +5,6 @@
 #ifndef PROJECT1_PRODUCT_HANDLER_H
 #define PROJECT1_PRODUCT_HANDLER_H
 
-#pragma once
 #include <nlohmann/json.hpp>
 
 using json = nlohmann::json;

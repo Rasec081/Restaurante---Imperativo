@@ -3,9 +3,9 @@
 //
 
 #include "order_handler.h"
-#include "server/order_manager.h"
-#include "shared/models.h"
-#include "shared/json_utils.h"
+#include "order_manager.h"
+#include "models.h"
+#include "json_utils.h"
 
 using namespace std;
 using json = nlohmann::json;

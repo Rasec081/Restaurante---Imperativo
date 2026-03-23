@@ -3,8 +3,8 @@
 //
 
 #include "product_handler.h"
-#include "server/product_manager.h"
-#include "shared/json_utils.h"
+#include "product_manager.h"
+#include "json_utils.h"
 
 using namespace std;
 using json = nlohmann::json;

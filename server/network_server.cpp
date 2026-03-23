@@ -12,6 +12,7 @@
 //#include "network_server.h"
 #include "handlers/order_handler.h"
 #include "handlers/product_handler.h"
+#include "json_utils.h"
 
 using namespace std;
 using json = nlohmann::json;
@@ -106,32 +107,4 @@ int createServer() {
     cout << "Server listening...\n";
 
     return server_socket;
-}
-
-int main() {
-    initOrderManager();
-    // Aqui poner el init del product
-
-    int server_socket = createServer();
-
-    //le metemos los productos antes de que se coencten los clientes
-    addProducts();
-
-    while(true) {
-
-        int client_socket = accept(server_socket, NULL, NULL);
-        if (client_socket < 0) continue;
-
-        pid_t pid = fork();
-
-        if(pid == 0) {
-            close(server_socket);
-            handleClient(client_socket);
-        }
-        else {
-            close(client_socket);
-        }
-    }
-
-    return 0;
 }

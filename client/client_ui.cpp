@@ -205,7 +205,7 @@ void menuCrearOrden() {
         cout << endl;
         cout << "Qué desea hacer con la orden ?" << endl;
         cout << "1. Salir y registrar la orden." << endl;
-        cout << "2. Salir y no guardar la orden ." << endl;
+        cout << "2. Salir y no guardar la orden." << endl;
         cout << "3. Modificar la orden." << endl;
         cin >> opcion;
 

@@ -47,10 +47,6 @@ build/*
 # IDEs
 .idea/
 
-# Executables específicos
-client_app
-server_app
-
 # CMake
 CMakeCache.txt
 CMakeFiles/
