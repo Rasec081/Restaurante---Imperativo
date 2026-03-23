@@ -5,8 +5,9 @@
 #include <iomanip> // setw, left, right
 
 #include "../shared/models.h"
-#include "../network_client.h"
+#include "network_client.h"
 #include "client_logic.h"
+#include "client_ui.h"
 #include <limits>
 #include <nlohmann/json.hpp>
 

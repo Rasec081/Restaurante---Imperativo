@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include "client_logic.h"
 #include "../shared/models.h"
 using namespace std;
 
