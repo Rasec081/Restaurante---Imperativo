@@ -1,0 +1,3 @@
+/home/richm/Imperativo/build/CMakeFiles/Imperativo.dir
+/home/richm/Imperativo/build/CMakeFiles/edit_cache.dir
+/home/richm/Imperativo/build/CMakeFiles/rebuild_cache.dir

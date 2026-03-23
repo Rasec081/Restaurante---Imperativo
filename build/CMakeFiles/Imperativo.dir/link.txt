@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/Imperativo.dir/main.cpp.o CMakeFiles/Imperativo.dir/server/app.cpp.o CMakeFiles/Imperativo.dir/server/products_ui.cpp.o -o Imperativo 

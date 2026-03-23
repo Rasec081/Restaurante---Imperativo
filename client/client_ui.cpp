@@ -174,6 +174,7 @@ vector<ProductoEscogido> escogerProductos(vector<ProductoEscogido>& productosEsc
             }
             default:
                 cout << "Opcion invalida\n";
+                esperar();
 
         }
 
