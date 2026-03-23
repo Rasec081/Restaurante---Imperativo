@@ -119,3 +119,35 @@ void handleDeleteOrder(int client_socket, json request) {
 
     sendJson(client_socket, response);
 }
+
+void handleGetOrderDetail(int client_socket, json request) {
+    int id = request["id"];
+
+    Orden o = getOrderById(id);
+
+    json response;
+
+    if (o.id == 0) {
+        response["status"] = "ERROR";
+        response["message"] = "Order not found";
+        sendJson(client_socket, response);
+        return;
+    }
+
+    response["status"] = "OK";
+
+    json ordenJson;
+    ordenJson["id"] = o.id;
+    ordenJson["mesa"] = o.numeroMesa;
+
+    for (auto& p : o.productos) {
+        json prod;
+        prod["nombre"] = p.nombre;
+        prod["cantidad"] = p.cantidad;
+        ordenJson["productos"].push_back(prod);
+    }
+
+    response["order"] = ordenJson;
+
+    sendJson(client_socket, response);
+}

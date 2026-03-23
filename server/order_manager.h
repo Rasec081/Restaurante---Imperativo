@@ -32,4 +32,6 @@ vector<Orden> getOrders();
 
 int getTotalMesas();
 
+Orden getOrderById(int id);
+
 #endif

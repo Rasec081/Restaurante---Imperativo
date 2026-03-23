@@ -85,3 +85,13 @@ vector<Orden> getOrders() {
 int getTotalMesas() {
     return totalMesas;
 }
+
+Orden getOrderById(int id) {
+    for (auto& o : orders) {
+        if (o.id == id) {
+            return o;
+        }
+    }
+
+    return Orden(); // vacío si no existe
+}

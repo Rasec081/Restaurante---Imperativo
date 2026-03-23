@@ -14,5 +14,6 @@ void handleGetOrders(int client_socket);
 void handleCompleteOrder(int client_socket, json request);
 void handleUpdateOrder(int client_socket, json request);
 void handleDeleteOrder(int client_socket, json request);
+void handleGetOrderDetail(int client_socket, json request);
 
 #endif //PROJECT1_ORDER_HANDLER_H

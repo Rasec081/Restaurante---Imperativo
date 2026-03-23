@@ -10,6 +10,6 @@
 using json = nlohmann::json;
 
 void initConnection();
-void sendJSON(json request);
+json sendJSON(json request);
 
 #endif //IMPERATIVO_NETWORK_CLIENT_H

@@ -50,6 +50,9 @@ void handleClient(int client_socket) {
             else if (type == "COMPLETE_ORDER") {
                 handleCompleteOrder(client_socket, request);
             }
+            else if (type == "GET_ORDER_DETAIL") {
+                handleGetOrderDetail(client_socket, request);
+            }
             else if (type == "UPDATE_ORDER") {
                 handleUpdateOrder(client_socket, request);
             }
@@ -67,6 +70,9 @@ void handleClient(int client_socket) {
             }
             else if (type == "DELETE_PRODUCT") {
                 handleDeleteProduct(client_socket, request);
+            }
+            else if (type == "GET_MAX_MESAS") {
+                //handleDeleteProduct(client_socket, request); //
             }
 
         } catch (exception &e) {
