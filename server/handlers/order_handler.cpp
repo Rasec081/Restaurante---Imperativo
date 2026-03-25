@@ -151,3 +151,26 @@ void handleGetOrderDetail(int client_socket, json request) {
 
     sendJson(client_socket, response);
 }
+
+void handleGetMaxTables(int client_socket, json request) {
+
+    int maxTables = getNumberTables();
+
+    json response;
+
+    if (maxTables <= 0) {
+        response["status"] = "ERROR";
+        response["message"] = "Tables not found";
+        sendJson(client_socket, response);
+        return;
+    }
+
+    response["status"] = "OK";
+
+    json data;
+    data["maximo"] = maxTables;
+
+    response["data"] = data;
+
+    sendJson(client_socket, response);
+}

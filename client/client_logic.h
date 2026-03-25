@@ -17,4 +17,5 @@ vector<json> obtenerOrdenes();
 vector<ProductoEscogido> obtenerDetalleOrden(int id);
 void eliminarProductoEscogido(vector<ProductoEscogido>& productos, string nombre);
 bool validarMesa(int mesaEscogida);
+vector<Producto> obtenerProductos();
 #endif //IMPERATIVO_CLIENT_LOGIC_H

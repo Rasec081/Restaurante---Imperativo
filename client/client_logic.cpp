@@ -115,10 +115,39 @@ int obtenerMaxMesas() {
     request["type"] = "GET_MAX_MESAS";
 
     json response = sendJSON(request);
-    return response["max_mesas"].get<int>();
+    return response["data"]["maximo"].get<int>();
 }
 
 bool validarMesa(int mesaEscogida) {
     int maxMesas = obtenerMaxMesas(); //esto es un json, hay que hacerlo int
     return mesaEscogida >= 1 && mesaEscogida <= maxMesas;
+}
+
+vector<Producto> obtenerProductos() {
+    json request;
+    request["type"] = "GET_PRODUCTS";
+
+    json response = sendJSON(request);
+
+    vector<Producto> productos;
+
+    if (!response.is_object()) {
+        cout << "Respuesta inválida del servidor\n";
+        return productos;
+    }
+
+    if (!response.contains("productos") || !response["productos"].is_array()) {
+        cout << "No se encontraron productos\n";
+        return productos;
+    }
+
+    for (auto& o : response["productos"]) {
+        Producto p;
+        p.nombre = o["nombre"];
+        p.precio = o["precio"];
+
+        productos.push_back(p);
+    }
+
+    return productos;
 }

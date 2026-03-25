@@ -4,6 +4,7 @@
 
 #include "order_manager.h"
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
@@ -21,9 +22,9 @@ void addOrder(Orden orden) {
     orden.id = nextId++;      //e l id viene en 0 entonces le pongo uno correcto
     orden.estado = false;     //por si acso
 
-    orders.push_back(orden);  /*aca ya estoy guartdando el id, numero de la mesa,
-                                la lista de comidas y sus cantidades, y el estado
-                                cada elemento del vector*/
+    cout << "Antes de agregar: " << orders.size() << endl;
+	orders.push_back(orden);
+	cout << "Despues de agregar: " << orders.size() << endl;
 }
 
 void deleteOrder(int order_id) { //aca va opcional porque no se como el cliente va a saber el id,

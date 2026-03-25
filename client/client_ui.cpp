@@ -93,16 +93,7 @@ vector<ProductoEscogido> escogerProductos(vector<ProductoEscogido>& productosEsc
     int opcion = 0;
 
     // 1. Obtener los productos
-    vector<Producto> productos;
-    //productos = pedirProductos();
-    Producto p;
-    p.nombre = "Pizza";
-    p.precio = 10;
-    Producto p2;
-    p2.nombre = "Pasta";
-    p2.precio = 5;
-    productos.push_back(p);
-    productos.push_back(p2);
+	vector<Producto> productos;
 
     while (opcion != 4) {
         limpiar();
@@ -118,10 +109,17 @@ vector<ProductoEscogido> escogerProductos(vector<ProductoEscogido>& productosEsc
         cin >> opcion;
 
         switch(opcion) {
-            case 1:
-                mostrarProductos(productos);
+            case 1: {
+				productos = obtenerProductos();
+                if (productos.empty()) {
+        			cout << "No hay productos disponibles\n";
+    			} else {
+        			mostrarProductos(productos);
+    			}
                 esperar();
                 break;
+			}
+
             case 2:
                 mostrarProductosEscogidos(productosEscogidos);
                 esperar();
@@ -172,6 +170,8 @@ vector<ProductoEscogido> escogerProductos(vector<ProductoEscogido>& productosEsc
                 esperar();
                 break;
             }
+			case 4:
+				break;
             default:
                 cout << "Opcion invalida\n";
                 esperar();
@@ -221,10 +221,10 @@ void menuCrearOrden() {
         cout << "1. Número de mesa: " << endl;
         cin >> mesa;
 
-        if (validarMesa(mesa)) {
+        if (validarMesa(mesa) == false) {
             cout << "Mesa inválida.\n";
             esperar();
-            return;
+            break;
         }
 
         cout << "2. Seleccionar productos: " << endl;
@@ -248,7 +248,6 @@ void menuCrearOrden() {
 
     // - Si desea guardar la orden
     if (opcion == 1) {
-        /*estandarizarlo y qyuitarlo de aqui*********************************************/
         json request;
         request["type"] = "ADD_ORDER";
         request["mesa"] = mesa;
@@ -279,7 +278,6 @@ void menuModificarOrden() {
         cout << endl;
         vector<json> ordenes = obtenerOrdenes();
 
-        // 👇 AQUI
         if (ordenes.empty()) {
             cout << "\nNo hay órdenes registradas.\n";
             esperar();

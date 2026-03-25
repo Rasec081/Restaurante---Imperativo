@@ -57,28 +57,6 @@ void opcionConsultarOrdenesPendientes() {
 
 void opcionConsultarOrdenes() {
     // - Opcion para consultar ordenes
-
-    Orden orden;
-    orden.id = 1;
-    orden.numeroMesa = 24;
-    vector<ProductoEscogido> prodEscogidos;
-    prodEscogidos.push_back({"Pizza", 10});
-    prodEscogidos.push_back({"Pollo Plancha", 1});
-    prodEscogidos.push_back({"Coca Cola", 2});
-    orden.productos = prodEscogidos;
-
-    Orden orden2;
-    orden2.id = 2;
-    orden2.numeroMesa = 33;
-    vector<ProductoEscogido> prodEscogidos2;
-    prodEscogidos2.push_back({"Pizza2", 10});
-    prodEscogidos2.push_back({"Pollo Plancha2", 1});
-    prodEscogidos2.push_back({"Coca Cola2", 2});
-    orden2.productos = prodEscogidos2;
-
-    addOrder(orden);
-    addOrder(orden2);
-
     mostrarOrdenes(getOrders());
     esperar();
     limpiar();
@@ -135,7 +113,7 @@ void menuGestionarOrdenes() {
     // - Menu para gestionar las ordenes del restaurante
     int opcion = 0;
 
-    while (opcion != 5) {
+    while (opcion != 4) {
 
         cout << "\n================================================== ADMINISTRAR ORDENES ===============================================" << endl;
         cout << "====================================================== =============== ==================================================" << endl;

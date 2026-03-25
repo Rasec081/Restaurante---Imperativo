@@ -50,16 +50,14 @@ void menuPrincipal() {
 }
 
 int main() {
-
+	addProducts();
     initOrderManager();
-    addProducts();
 
     int server_socket = createServer();
 
     pid_t pid = fork();
 
     if (pid == 0) {
-        // 🔥 HIJO → servidor
         while (true) {
 
             int client_socket = accept(server_socket, NULL, NULL);
@@ -75,7 +73,6 @@ int main() {
             }
         }
     } else {
-        // 🔥 PADRE → interfaz
         menuPrincipal();
     }
 

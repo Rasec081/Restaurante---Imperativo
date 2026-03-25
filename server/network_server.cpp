@@ -19,8 +19,6 @@ using json = nlohmann::json;
 
 void handleClient(int client_socket) {
 
-    cout << "Client connected\n";
-
     char buffer[2048];
 
     while(true) {
@@ -30,12 +28,10 @@ void handleClient(int client_socket) {
         int bytes = recv(client_socket, buffer, sizeof(buffer), 0);
 
         if (bytes <= 0) {
-            cout << "Cliente desconectado\n";
             break;
         }
 
         string msg(buffer);
-        cout << "Mensaje recibido: " << msg << endl;
 
         try {
             json request = json::parse(msg);
@@ -72,7 +68,7 @@ void handleClient(int client_socket) {
                 handleDeleteProduct(client_socket, request);
             }
             else if (type == "GET_MAX_MESAS") {
-                //handleDeleteProduct(client_socket, request); //
+                handleGetMaxTables(client_socket, request);
             }
 
         } catch (exception &e) {

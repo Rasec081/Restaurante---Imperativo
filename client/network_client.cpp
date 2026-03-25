@@ -33,7 +33,6 @@ json sendJSON(json request) {
     memset(buffer, 0, sizeof(buffer));
     recv(client_socket, buffer, sizeof(buffer), 0);
 
-    cout << "\nRESPUESTA:\n" << buffer << endl;
 
     json response;
 
