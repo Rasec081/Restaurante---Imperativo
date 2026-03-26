@@ -1,111 +1,164 @@
-//
-// Created by Daniel on 15/3/2026.
-//
-
 #include "order_manager.h"
-#include <vector>
-#include <iostream>
+#include <fstream>
+#include <nlohmann/json.hpp>
 
 using namespace std;
+using json = nlohmann::json;
 
-vector<Orden> orders;
-int nextId;
-int totalMesas;
+string FILE_PATH_ORDERS_ = "orders.json";
 
-void initOrderManager() {
-    nextId = 1;
-    totalMesas = 20;
+vector<Orden> leerOrdenesDesdeArchivo() {
+    vector<Orden> ordenes;
+
+    ifstream file(FILE_PATH_ORDERS_);
+    if (!file.is_open()) {
+        return ordenes;
+    }
+
+    json j;
+    file >> j;
+
+    for (auto& item : j) {
+        Orden o;
+        o.id = item["id"];
+        o.numeroMesa = item["mesa"];
+        o.estado = item["estado"];
+
+        for (auto& p : item["productos"]) {
+            ProductoEscogido pe;
+            pe.nombre = p["nombre"];
+            pe.cantidad = p["cantidad"];
+            o.productos.push_back(pe);
+        }
+
+        ordenes.push_back(o);
+    }
+
+    return ordenes;
+}
+
+void guardarOrdenesEnArchivo(vector<Orden> ordenes) {
+    json j = json::array();
+
+    for (auto& o : ordenes) {
+        json ordenJson;
+        ordenJson["id"] = o.id;
+        ordenJson["mesa"] = o.numeroMesa;
+        ordenJson["estado"] = o.estado;
+
+        for (auto& p : o.productos) {
+            ordenJson["productos"].push_back({
+                {"nombre", p.nombre},
+                {"cantidad", p.cantidad}
+            });
+        }
+
+        j.push_back(ordenJson);
+    }
+
+    ofstream file(FILE_PATH_ORDERS_);
+    file << j.dump(4);
+}
+
+int obtenerSiguienteId(vector<Orden> ordenes) {
+    int maxId = 0;
+    for (auto& o : ordenes) {
+        if (o.id > maxId) maxId = o.id;
+    }
+    return maxId + 1;
 }
 
 void addOrder(Orden orden) {
+    vector<Orden> ordenes = leerOrdenesDesdeArchivo();
 
-    orden.id = nextId++;      //e l id viene en 0 entonces le pongo uno correcto
-    orden.estado = false;     //por si acso
+    orden.id = obtenerSiguienteId(ordenes);
+    orden.estado = false;
 
-    cout << "Antes de agregar: " << orders.size() << endl;
-	orders.push_back(orden);
-	cout << "Despues de agregar: " << orders.size() << endl;
+    ordenes.push_back(orden);
+
+    guardarOrdenesEnArchivo(ordenes);
 }
 
-void deleteOrder(int order_id) { //aca va opcional porque no se como el cliente va a saber el id,
-                                                //tal vez sea mejor buscar por numero de mesa
+void deleteOrder(int order_id) {
+    vector<Orden> ordenes = leerOrdenesDesdeArchivo();
 
-    for (int i = 0; i < orders.size(); i++) {
-        if (orders[i].id == order_id) {
-            orders.erase(orders.begin() + i);
-            return;
+    for (int i = 0; i < ordenes.size(); i++) {
+        if (ordenes[i].id == order_id) {
+            ordenes.erase(ordenes.begin() + i);
+            break;
         }
     }
+
+    guardarOrdenesEnArchivo(ordenes);
 }
 
-/*
- * aca no seria mejor en vez de id tal vez poner el numero de la mesa para así
- * buscar la orden que este pendiente y ademas tenga ese mismo numero de mesa?
- *
- *
- *podria pasar los productos por referencia a pesar de ser con sockets?
- */
 void updateOrder(int order_id, vector<ProductoEscogido> productos) {
+    vector<Orden> ordenes = leerOrdenesDesdeArchivo();
 
-    for (int i = 0; i < orders.size(); i++) {
-        if (orders[i].id == order_id) {
-
-            // seria con el vector d ela estructura
-            orders[i].productos = productos;
-
-
-            return;
+    for (auto& o : ordenes) {
+        if (o.id == order_id) {
+            o.productos = productos;
+            break;
         }
     }
-}
 
+    guardarOrdenesEnArchivo(ordenes);
+}
 
 void completeOrder(int order_id) {
-    /*
-     * aca no seria mejor en vez de id tal vez poner el numero de la mesa para así
-     * buscar la orden que este pendiente y ademas tenga ese mismo numero de mesa?
-     * y así lo ponermos ya como completado?
-     * es que sino el cliente tendria que saber el id de las oprdenes y eso no
-     * tiene snetido
-     */
-    for (int i = 0; i < orders.size(); i++) {
-        if (orders[i].id == order_id) {
+    vector<Orden> ordenes = leerOrdenesDesdeArchivo();
 
-            // si Orden tuviera estado:
-            orders[i].estado = true;
-
-            return;
+    for (auto& o : ordenes) {
+        if (o.id == order_id) {
+            o.estado = true;
+            break;
         }
     }
+
+    guardarOrdenesEnArchivo(ordenes);
 }
 
 vector<Orden> getOrders() {
-    return orders;
+    return leerOrdenesDesdeArchivo();
 }
 
 vector<Orden> getPendingOrders() {
-    vector<Orden> pendingOrders;
+    vector<Orden> ordenes = leerOrdenesDesdeArchivo();
+    vector<Orden> pendientes;
 
-    for (int i = 0; i < orders.size(); i++) {
-        if (orders[i].estado == false) {
-
-            pendingOrders.push_back(orders[i]);
+    for (auto& o : ordenes) {
+        if (!o.estado) {
+            pendientes.push_back(o);
         }
     }
 
-    return pendingOrders;
+    return pendientes;
 }
 
 bool orderExists(int orderId) {
+    vector<Orden> ordenes = leerOrdenesDesdeArchivo();
 
-    for (int i = 0; i < orders.size(); i++) {
-        if (orders[i].id == orderId) {
-
-            return true;
-        }
+    for (auto& o : ordenes) {
+        if (o.id == orderId) return true;
     }
 
     return false;
+}
+
+Orden getOrderById(int id) {
+    vector<Orden> ordenes = leerOrdenesDesdeArchivo();
+
+    for (auto& o : ordenes) {
+        if (o.id == id) return o;
+    }
+
+    return Orden();
+}
+
+int totalMesas = 20;
+
+void initOrderManager() {
+    totalMesas = 20;
 }
 
 int getNumberTables() {
@@ -118,14 +171,4 @@ void updateNumberTables(int numberTables) {
 
 int getTotalMesas() {
     return totalMesas;
-}
-
-Orden getOrderById(int id) {
-    for (auto& o : orders) {
-        if (o.id == id) {
-            return o;
-        }
-    }
-
-    return Orden(); // vacío si no existe
 }

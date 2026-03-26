@@ -42,6 +42,8 @@ void menuPrincipal() {
                 limpiar();
                 menuGestionarNumeroMesas();
                 break;
+            case 4:
+                break;
             default:
                 cout << "Opcion invalida\n";
                 esperar();

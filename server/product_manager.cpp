@@ -1,91 +1,144 @@
-//
-// Created by jimen on 15/3/2026.
-//
-
 #include "product_manager.h"
-#include <string>
-#include <iomanip>
+#include <fstream>
+#include <nlohmann/json.hpp>
+
 using namespace std;
-vector<Producto> listaProductos;
+using json = nlohmann::json;
+
+string FILE_PATH = "productos.json";
+
+vector<Producto> leerProductosDesdeArchivo() {
+    vector<Producto> productos;
+
+    ifstream file(FILE_PATH);
+    if (!file.is_open()) {
+        return productos;
+    }
+
+    json j;
+    file >> j;
+
+    for (auto& item : j) {
+        Producto p;
+        p.nombre = item["nombre"];
+        p.precio = item["precio"];
+        productos.push_back(p);
+    }
+
+    return productos;
+}
+
+void guardarProductosEnArchivo(vector<Producto> productos) {
+    json j = json::array();
+
+    for (auto& p : productos) {
+        j.push_back({
+            {"nombre", p.nombre},
+            {"precio", p.precio}
+        });
+    }
+
+    ofstream file(FILE_PATH);
+    file << j.dump(4);
+}
 
 vector<Producto> crearProducto(string nombre, float precio) {
+    vector<Producto> productos = leerProductosDesdeArchivo();
 
-    Producto nuevoProducto;
-    nuevoProducto.nombre = nombre;
-    nuevoProducto.precio = precio;
+    Producto nuevo;
+    nuevo.nombre = nombre;
+    nuevo.precio = precio;
 
-    listaProductos.push_back(nuevoProducto);
+    productos.push_back(nuevo);
 
-    return listaProductos;
-}
+    guardarProductosEnArchivo(productos);
 
-
-void actualizarProducto(string nombre, string nuevoNombre) {
-
-    for (int i = 0; i < listaProductos.size(); i++) {
-
-        if (listaProductos[i].nombre == nombre) {
-            listaProductos[i].nombre = nuevoNombre;
-            break;
-        }
-    }
-}
-
-void actualizarProducto(string nombre, float precio) {
-
-    for (int i = 0; i < listaProductos.size(); i++) {
-
-        if (listaProductos[i].nombre == nombre) {
-            listaProductos[i].precio = precio;
-            break;
-        }
-    }
+    return productos;
 }
 
 vector<Producto> getProductos() {
-
-    return listaProductos;
+    return leerProductosDesdeArchivo();
 }
 
-void eliminarProducto(string nombre) {
+void actualizarProducto(string nombre, string nuevoNombre) {
+    vector<Producto> productos = leerProductosDesdeArchivo();
 
-    for (int i = 0; i < listaProductos.size(); i++) {
-
-        if (listaProductos[i].nombre == nombre) {
-
-            listaProductos.erase(listaProductos.begin() + i);
+    for (auto& p : productos) {
+        if (p.nombre == nombre) {
+            p.nombre = nuevoNombre;
             break;
         }
     }
+
+    guardarProductosEnArchivo(productos);
 }
 
-bool existeProducto(string nombre) {
-    for (int i = 0; i < listaProductos.size(); i++) {
-        if (listaProductos[i].nombre == nombre) {
-            return true;
+void actualizarProducto(string nombre, float precio) {
+    vector<Producto> productos = leerProductosDesdeArchivo();
+
+    for (auto& p : productos) {
+        if (p.nombre == nombre) {
+            p.precio = precio;
+            break;
         }
     }
 
+    guardarProductosEnArchivo(productos);
+}
+
+void eliminarProducto(string nombre) {
+    vector<Producto> productos = leerProductosDesdeArchivo();
+
+    for (int i = 0; i < productos.size(); i++) {
+        if (productos[i].nombre == nombre) {
+            productos.erase(productos.begin() + i);
+            break;
+        }
+    }
+
+    guardarProductosEnArchivo(productos);
+}
+
+bool existeProducto(string nombre) {
+    vector<Producto> productos = leerProductosDesdeArchivo();
+
+    for (auto& p : productos) {
+        if (p.nombre == nombre) {
+            return true;
+        }
+    }
     return false;
 }
 
 Producto buscarProducto(string nombre) {
-    for (int i = 0; i < listaProductos.size(); i++) {
-        if (listaProductos[i].nombre == nombre) {
-            return listaProductos[i];
+    vector<Producto> productos = leerProductosDesdeArchivo();
+
+    for (auto& p : productos) {
+        if (p.nombre == nombre) {
+            return p;
         }
     }
+
+    return {"", 0};
 }
 
 void addProducts() {
-    listaProductos.push_back({"Pizza", 3500});
-    listaProductos.push_back({"Hamburguesa", 4000});
-    listaProductos.push_back({"Refresco", 1000});
-    listaProductos.push_back({"Tacos al pastor", 2500});
-    listaProductos.push_back({"Enchiladas verdes", 2800});
-    listaProductos.push_back({"Ceviche", 3200});
-    listaProductos.push_back({"Paella", 4500});
-    listaProductos.push_back({"Sushi", 3800});
-    listaProductos.push_back({"Milanesa", 3000});
-    listaProductos.push_back({"Flan napolitano", 1500});
+    vector<Producto> productos = leerProductosDesdeArchivo();
+
+    if (!productos.empty()) return;
+
+    productos = {
+        {"Pizza", 3500},
+        {"Hamburguesa", 4000},
+        {"Refresco", 1000},
+        {"Tacos al pastor", 2500},
+        {"Enchiladas verdes", 2800},
+        {"Ceviche", 3200},
+        {"Paella", 4500},
+        {"Sushi", 3800},
+        {"Milanesa", 3000},
+        {"Flan napolitano", 1500}
+    };
+
+    guardarProductosEnArchivo(productos);
 }

@@ -299,6 +299,8 @@ void menuGestionarProductos() {
                 limpiar();
                 opcionEliminarProducto();
                 break;
+            case 5:
+                break;
             default:
                 cout << "Opcion invalida\n";
                 esperar();
